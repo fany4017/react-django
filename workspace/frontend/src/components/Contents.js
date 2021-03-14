@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -57,12 +57,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Contents = props =>  { //부모 컴포넌트로부터 전달받은 props를 받아온다
 
-  //const [selectedDate, setSelectedDate] = React.useState(props.date);
-  //const [site, setSite] = React.useState(props.site);
-  
   const classes = useStyles();
   const theme = useTheme();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(0); // value 의 초기값을 0 으로 지정
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -72,13 +69,10 @@ const Contents = props =>  { //부모 컴포넌트로부터 전달받은 props�
     setValue(index);
   };
 
-  // useEffect( () => {
-
-  // },[selectedDate] )
-
-
   return (
     <div className={classes.root}>
+      {/* AppBar , Tab, 이런건 material-ui 에서제공하는 컴포넌트고 
+      SwipeableViews 이건 따로 npm install --save react-swipeable-views 으로 설치해야 쓸수 있는 컴포넌트  */}
       <AppBar position="static" color="default">
         <Tabs
           value={value}
@@ -99,7 +93,8 @@ const Contents = props =>  { //부모 컴포넌트로부터 전달받은 props�
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          {/* 날짜 & site를 자식 컴포넌트로 전달 */}
+          {/* 날짜 & site를 자식 컴포넌트로 전달 
+          Morning.js 로 가보자*/}
           <Morning date={props.date} site={props.site}/>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>

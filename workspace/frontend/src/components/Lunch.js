@@ -8,7 +8,7 @@ const Lunch = (props) => {
     let date =  year + "-" + month + "-" + day;
     let site = props.site;
 
-    const[posts, setPosts] = useState('');
+    //const[posts, setPosts] = useState('');
     const[lunch1, setlunch1] = useState('준비중입니다');
     const[lunch2, setlunch2] = useState('');
     const[lunch3, setlunch3] = useState('');
@@ -20,14 +20,14 @@ const Lunch = (props) => {
     const fetchInitialData = async () => {
 
         const res = await fetch('http://127.0.0.1:8000/api/cafeteria/'+site+'/'+date);
-        const posts = await res.json();
+        const data = await res.json();
 
-        setPosts(posts);
+        //setPosts(posts);
 
-        if(posts.detail != 'Not found.'){
-            const lunch1Arr = posts.lunch_type_1.split(",");
-            const lunch2Arr = posts.lunch_type_2.split(",");
-            const lunch3Arr = posts.lunch_type_3.split(",");
+        if(data.detail != 'Not found.'){
+            const lunch1Arr = data.lunch_type_1.split(",");
+            const lunch2Arr = data.lunch_type_2.split(",");
+            const lunch3Arr = data.lunch_type_3.split(",");
 
             const lunch1_element = [];
             const lunch2_element = [];

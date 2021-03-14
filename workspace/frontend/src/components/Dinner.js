@@ -5,11 +5,10 @@ const Dinner = (props) => {
     let year = props.date.getFullYear();
     let month = ("0" + (1 + props.date.getMonth())).slice(-2);
     let day = ("0" + props.date.getDate()).slice(-2);
-
     let date =  year + "-" + month + "-" + day;
     let site = props.site;
     
-    const[posts, setPosts] = useState('');
+    //const[posts, setPosts] = useState('');
     const[dinner1, setdinner1] = useState('준비중입니다');
     const[dinner2, setdinner2] = useState('');
     const[dinner3, setdinner3] = useState('');
@@ -21,12 +20,12 @@ const Dinner = (props) => {
     const fetchInitialData = async () => {
 
         const res = await fetch('http://127.0.0.1:8000/api/cafeteria/'+site+'/'+date);
-        const posts = await res.json();
+        const data = await res.json();
 
-        if(posts.detail != 'Not found.'){
-            const dinner1Arr = posts.dinner_type_1.split(",");
-            const dinner2Arr = posts.dinner_type_2.split(",");
-            const dinner3Arr = posts.dinner_type_3.split(",");
+        if(data.detail != 'Not found.'){
+            const dinner1Arr = data.dinner_type_1.split(",");
+            const dinner2Arr = data.dinner_type_2.split(",");
+            const dinner3Arr = data.dinner_type_3.split(",");
 
             const dinner1_element = [];
             const dinner2_element = [];
