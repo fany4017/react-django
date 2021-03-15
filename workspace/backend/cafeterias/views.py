@@ -14,7 +14,6 @@ class ListMenus(generics.ListCreateAPIView):
 
 
 class DetailMenus(generics.RetrieveUpdateDestroyAPIView):
-
     serializer_class = CafeteriasSerializer
 
     def get_object(self):
@@ -30,45 +29,6 @@ class DetailMenus(generics.RetrieveUpdateDestroyAPIView):
 #         return JsonResponse(serializer.data, safe=False)
 
 
-class NhlifeDetailMenus(generics.RetrieveUpdateDestroyAPIView):
-    #model = Menu
-    #queryset = Menu.objects.filter(site='nhlife')
-    queryset = Menu.objects.filter(site='nhlife')
-    serializer_class = CafeteriasSerializer
-    lookup_field = 's_date'
-
-    # def get_object(self, **kwargs):
-    #     return Menu.objects.get(s_date=self.kwargs.get("s_date"))
-
-
-class NhitcenterDetailMenus(generics.RetrieveUpdateDestroyAPIView):
-    #model = Menu
-    #queryset = Menu.objects.filter(site='nhlife')
-    queryset = Menu.objects.filter(site='nhitcenter')
-    serializer_class = CafeteriasSerializer
-    lookup_field = 's_date'
-
-    # def get_object(self, **kwargs):
-    #     return Menu.objects.get(s_date=self.kwargs.get("s_date"))
-
-    # def get_serilizer_context(self, *args, **kwargs):
-    #     return {'request': self.request}
-
-
 class ListResturant(generics.ListCreateAPIView):
-
     queryset = ResturantInfo.objects.all()
     serializer_class = ResturantSerializer
-
-
-# class DetailResturant(generics.ListCreateAPIView):
-
-#     serializer_class = CafeteriasSerializer
-
-#     def get_queryset(self):
-#         site_code = self.kwargs.get('site_code')
-#         return ResturantInfo.objects.all().filter(site_code=site_code)
-
-#     def get_object(self):
-#         site_code = self.kwargs.get('site_code')
-#         return ResturantInfo.objects.all().filter(site_code=site_code)

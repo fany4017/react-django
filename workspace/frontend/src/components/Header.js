@@ -5,7 +5,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
-import SvgIcon from '@material-ui/core/SvgIcon';
 import EcoIcon from '@material-ui/icons/Eco';
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -28,18 +27,9 @@ const useStyles = makeStyles((theme) => ({
     color: '#00a152'
   }
 }));
-function HomeIcon(props) {
-  return (
-    <SvgIcon {...props}>
-      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-    </SvgIcon>
-  );
-}
-
 
 export default function Header(props) {
   const classes = useStyles();
-  //const { sections, title } = props;
   const sections = [
     { title: '식단표', url: '/' },
     { title: '주변맛집', url: '/resturant' },
@@ -58,9 +48,6 @@ export default function Header(props) {
           className={classes.toolbarTitle}
         >
         </Typography>
-        <Button variant="outlined" size="small" >
-          회원가입
-        </Button>
       </Toolbar>
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
         {sections.map((section, index) => (

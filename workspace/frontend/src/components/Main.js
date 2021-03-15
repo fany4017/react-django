@@ -20,24 +20,9 @@ import background from '../images/background_nature.jpg'; // 배경 주소
 
 const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
 
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-    },
-  },
   background:{
     backgroundColor : 'white',
     padding: theme.spacing(2, 2, 4),
-  },
-  icon: {
-    marginRight: theme.spacing(2),
-  },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4),
   },
   cardGrid: {
     paddingTop: theme.spacing(4),
@@ -50,13 +35,6 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
   },
   cardMedia: {
     paddingTop: '25.25%', // 16:9
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
   },
   text :{ 
     fontFamily: 'cursive',

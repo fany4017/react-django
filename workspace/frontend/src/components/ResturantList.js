@@ -42,7 +42,8 @@ const ResturantsList = props => {
   const site = props.site; // select 박스에서 선택된 지점 코드
   const[posts, setPosts] = useState('');
   const[loading, setLoading] = useState(false);
-  console.log('ResturantsList site : '+site);
+  
+
   useEffect( () => {
     fetchInitialData(); // useEffect 안에서 바로 fetch를 사용하지 말고, fetch 역할의 함수를 실행할것!
   },[site] )
