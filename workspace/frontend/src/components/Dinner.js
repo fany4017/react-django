@@ -1,6 +1,24 @@
 import React,{useState, useEffect} from 'react'
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
+
+    li: {
+        borderBottom: "1.5px solid rgb(212, 212, 212)",
+        paddingBottom: '10px',
+    },
+    text :{ 
+        fontFamily: 'NanumGothic-Bold',
+        fontWeight: 'Bold',
+        color: 'black',
+        fontSize:'15px',
+    },
+  
+}));
 
 const Dinner = (props) => {
+
+    const classes = useStyles(); // 이렇게 선언하면 classes.객체로 클래스 접근가능
 
     let year = props.date.getFullYear();
     let month = ("0" + (1 + props.date.getMonth())).slice(-2);
@@ -88,8 +106,8 @@ const Dinner = (props) => {
         return null; //return null
     }
     return (
-        <div>
-            <div>{dinner1}</div><br/>
+        <div className={classes.text}>
+            <div className={classes.li}>{dinner1}</div><br/>
             <div>{dinner2}</div><br/>
             <div>{dinner3}</div>
         </div>

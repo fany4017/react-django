@@ -17,7 +17,7 @@ import ResturantList from './ResturantList';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
-    paddingTop: theme.spacing(2),
+    paddingTop: '0px',
     paddingBottom: theme.spacing(8),
   },
 }));
@@ -25,9 +25,8 @@ const useStyles = makeStyles((theme) => ({
 const Resturant = ({match}) => {
 
   const classes = useStyles();
-  const [site, setSite] = React.useState('');
+  const [site, setSite] = React.useState('nhlife');
   
-
   const handleSetSite = e => {
     setSite(e.target.value);
   };
@@ -35,7 +34,6 @@ const Resturant = ({match}) => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Header />
       <main>
         {/* Hero unit */}
         <Container className={classes.cardGrid} maxWidth="md">

@@ -11,7 +11,7 @@ import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
-    paddingTop: theme.spacing(6),
+    paddingTop: 'theme.spacing(6)',
     paddingBottom: theme.spacing(8),
   },
   card: {
@@ -33,7 +33,17 @@ const useStyles = makeStyles((theme) => ({
     //boxShadow: "0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)",
     position: "relative",
     zIndex: 1000
-  }
+  },
+  grid:{
+    padding:'0px',
+  },
+  text :{ 
+    fontFamily: 'NanumGothic-Bold',
+    fontWeight: 'Bold',
+    color: 'black',
+    fontSize:'10px',
+    //textAlign: 'center',
+  },
 }));
 
 const ResturantsList = props => {
@@ -81,11 +91,11 @@ const ResturantsList = props => {
       <CssBaseline />
       <main>
         {/* Hero unit */}
-        <Container className={classes.cardGrid} maxWidth="md">
+        <Container className={classes.cardGrid, classes.text} maxWidth="md">
           {/* End hero unit */}
-          <Grid container spacing={4}>
+          <Grid container spacing={4} >
           {posts.map((post) => (
-              <Grid item key={post.id} xs={12} sm={6} md={4}>
+              <Grid item key={post.id} xs={12} sm={6} md={4} className={classes.grid, classes.text}>
                 <Card className={classes.card}>
                 <CardMedia style={{ height: "250px", paddingTop: "10%" }}
                     className={classes.media}
@@ -96,13 +106,13 @@ const ResturantsList = props => {
                     <Typography gutterBottom variant="h8" component="h2">
                       {post.resturant_name}
                     </Typography>
-                    <Typography>
+                    <Typography className={classes.text}>
                       <li>대표메뉴 : {post.title_menu}</li><li>전화번호 : {post.resturant_tel}</li>
                     </Typography>
-                    <Typography>
+                    <Typography className={classes.text}>
                       <li>좌석형태 : {post.seat_type}</li><li>룸 여부 : {post.room_is}</li>
                     </Typography>
-                    <Typography>
+                    <Typography className={classes.text}>
                       <li>영업시간 : {post.operating_time}</li>
                     </Typography>
                   </CardContent>

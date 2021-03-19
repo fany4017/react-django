@@ -65,3 +65,13 @@ class ResturantInfo(models.Model):  # 회사 주변 식당
 
     class Meta:
         ordering = ['-enroll_date']  # 정렬 순서
+
+
+class Notice(models.Model):
+    title = models.CharField(max_length=100, blank=False,
+                             help_text="제목을 입력하세요")  # 제목
+    content = models.TextField(blank=False, help_text="내용을 입력하세요")  # 내용
+    enroll_date = models.DateTimeField('date enrolled')  # 등록일
+
+    class Meta:
+        ordering = ['-enroll_date']  # 정렬 순서

@@ -1,16 +1,16 @@
 /*global kakao */
 import React, { useEffect } from "react";
 
-export default function Test() {
+export default function NhlifeMap() {
   useEffect(() => {
     mapscript();
   }, []);
 
   const mapscript = () => {
-    let container = document.getElementById("map");
+    let container = document.getElementById("nhlifemap");
     let options = {
       center: new kakao.maps.LatLng(37.56297923916484, 126.96862194129662),
-      level: 4,
+      level: 3,
     };
     //map
     const map = new kakao.maps.Map(container, options);
@@ -30,5 +30,5 @@ export default function Test() {
     marker.setMap(map);
   };
 
-  return <div id="map" style={{ width: "75vw", height: "50vh" }}></div>;
+  return <div id="nhlifemap" style={{ width: "75vw", height: "50vh" }}></div>;
 }

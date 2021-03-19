@@ -8,28 +8,37 @@ import Container from '@material-ui/core/Container';
 import 'fontsource-roboto';
 import {MuiPickersUtilsProvider,KeyboardDatePicker,} from '@material-ui/pickers';
 import Contents from './Contents';
-import Header from './Header';
+import SiteChoice from './SiteChoice';
 
 const useStyles = makeStyles((theme) => ({
+
   background:{
     backgroundColor : '#b3e5fc',
     padding: theme.spacing(2, 2, 4),
   },
   cardGrid: {
-    paddingTop: theme.spacing(2),
+    paddingTop: '0px',
     paddingBottom: theme.spacing(8),
   },
-  card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
+  text :{ 
+    fontFamily: 'NanumGothic-Bold',
+    fontWeight: 'Bold',
+    color: 'black',
+    fontSize:'15px',
   },
 }));
 
-const Detail = ({match}) => { //match 로 Main.js에서 site 값을 가져올수있음 /detail/nhlife 의 nhlife 값
-
-  const site = match.params.site; //main에서 전달된 url에서 site 부분만 가져옴
+const Detail = () => { //match 로 Main.js에서 site 값을 가져올수있음 /detail/nhlife 의 nhlife 값
+  
   const classes = useStyles();
+
+  //const site = match.params.site; //main에서 전달된 url에서 site 부분만 가져옴
+  
+  const [site, setSite] = React.useState('nhlife');
+  
+  const handleSetSite = e => {
+    setSite(e.target.value);
+  };
 
   //오늘 날짜 YYYY-MM-DD 로 만드는 과정 (캘린더에 오늘날짜를 기본으로 적용하기 위함)
   const date = new Date();   
@@ -50,23 +59,26 @@ const Detail = ({match}) => { //match 로 Main.js에서 site 값을 가져올수
     setSelectedDate(date); 
     //setSelectedDate 메소드로 날짜 state 변경하면 위에선한한 selectedData 변수에 선택된 날짜가 담김.
     //이걸 props 에 담아서 하위 Contents 컴포넌트로 전달함
-
   };
 
   return (
     <React.Fragment>
       <CssBaseline />
-      <Header title=""/>
+      
       <main>
         {/* Hero unit */}
         <Container className={classes.cardGrid} maxWidth="md">
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
           <Grid container justify="space-around">
-            <KeyboardDatePicker
+            <SiteChoice setSite={handleSetSite} site={site} />
+            {/* <DetailChoice /> */}
+          </Grid>
+          <Grid container justify="space-around">
+            <KeyboardDatePicker className={classes.text}
               margin="normal"
               id="date-picker-dialog"
               label="일자를 선택하세요"
-              format="yyyy/MM/dd"
+              format="yyyy-MM-dd"
               value={selectedDate}
               onChange={handleDateChange} // 날짜 컴포넌트가 변경될때마다 onChange 메소드가 호출됨-> 위에 선언한 handleDateChange 호출
               KeyboardButtonProps={{

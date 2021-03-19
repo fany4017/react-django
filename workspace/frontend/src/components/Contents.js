@@ -50,13 +50,16 @@ const useStyles = makeStyles((theme) => ({
     width: 500,
   },
   text :{ 
-    fontFamily: 'Campton-Bold',
-    fontWeight: 'bold',
-  }
+    fontFamily: 'NanumGothic-Bold',
+    fontWeight: 'Bold',
+    color: 'black',
+    fontSize:'18px',
+    textAlign: 'center',
+  },
 }));
 
 const Contents = props =>  { //부모 컴포넌트로부터 전달받은 props를 받아온다
-
+  //console.log('Contents 로그찍힘 : '+props.site + ' / ' + props.date)
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0); // value 의 초기값을 0 으로 지정

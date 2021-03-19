@@ -1,24 +1,24 @@
 /*global kakao */
 import React, { useEffect } from "react";
 
-export default function Test() {
+export default function NhitcenterMap() {
   useEffect(() => {
     mapscript();
   }, []);
 
   const mapscript = () => {
-    let container = document.getElementById("map");
+    let container = document.getElementById("nhitcentermap");
     let options = {
-      center: new kakao.maps.LatLng(37.56297923916484, 126.96862194129662),
-      level: 4,
+      center: new kakao.maps.LatLng(37.39863472468278, 126.98800784718713),
+      level: 3,
     };
     //map
     const map = new kakao.maps.Map(container, options);
 
     //마커가 표시 될 위치
     let markerPosition = new kakao.maps.LatLng(
-      37.56297923916484,
-      126.96862194129662
+      37.39863472468278,
+      126.98800784718713
     );
 
     // 마커를 생성
@@ -30,5 +30,5 @@ export default function Test() {
     marker.setMap(map);
   };
 
-  return <div id="map" style={{ width: "75vw", height: "50vh" }}></div>;
+  return <div id="nhitcentermap" style={{ width: "75vw", height: "50vh" }}></div>;
 }

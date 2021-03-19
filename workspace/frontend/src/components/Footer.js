@@ -1,32 +1,42 @@
-import React from 'react'
-import Typography from '@material-ui/core/Typography';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Copyright from './Copyright';
+import AppBar from '@material-ui/core/AppBar';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
-    background:{
-      backgroundColor : 'white',
-      padding: theme.spacing(2, 2, 4),
-    },
-    footer: {
-        backgroundColor: theme.palette.background.paper,
-        padding: theme.spacing(6),
-      },
-  }));
+  
+  appBar: {
+    top: 'auto',
+    bottom: 0,
+    backgroundColor:'#eeeeee'
+  },
+  grow: {
+    flexGrow: 1,
+  },
+  text :{
+    padding: theme.spacing(1, 1, 1),
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color:'black',
+    width: '100%',
+  }
+}));
 
 export default function Footer() {
-    const classes = useStyles();
-    return (
-        <div>
-            <footer className={classes.footer, classes.background}>
-                <Typography variant="h6" align="center" gutterBottom>
-                Footer
-                </Typography>
-                <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                Something here to give the footer a purpose!
-                </Typography>
-                <Copyright />
-            </footer>
-        </div>
-    )
+
+  const classes = useStyles();
+
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <AppBar position="fixed" color="primary" className={classes.appBar}>
+        <Toolbar>
+          <div className={classes.grow} />
+          <Typography className={classes.text}>Copyright 2021. Nice Helper. <br/>All rights reserved.</Typography><br/>
+        </Toolbar>
+      </AppBar>
+    </React.Fragment>
+  );
 }

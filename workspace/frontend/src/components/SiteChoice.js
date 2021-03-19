@@ -12,15 +12,17 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  text :{ 
+    fontFamily: 'NanumGothic-Bold',
+    fontWeight: 'Bold',
+    color: 'black',
+    fontSize:'15px',
+  },
 }));
 
 const SiteChoice = (props) => {
 
   const classes = useStyles();
-  // 미사용
-  // const handleChange = (event) => { 
-    
-  // };
 
   return (
     <div>
@@ -29,17 +31,16 @@ const SiteChoice = (props) => {
           //value={'none'}
           onChange={e => props.setSite(e)} value={props.site}
           displayEmpty
-          className={classes.selectEmpty}
+          className={classes.selectEmpty, classes.text}
           inputProps={{ 'aria-label': 'Without label' }}
         >
-          <MenuItem value="">
-            <em>지점을 선택하세요</em>
+          <MenuItem value="" className={classes.text}>
+            <em>사이트를 선택하세요</em>
           </MenuItem>
-          <MenuItem value={'nhlife'}>NH농협생명</MenuItem>
-          <MenuItem value={'nhitcenter'}>NH통합IT센터</MenuItem>
-          <MenuItem value={'nhit'}>농협정보시스템</MenuItem>
+          <MenuItem value={'nhlife'} className={classes.text}>NH농협생명</MenuItem>
+          <MenuItem value={'nhitcenter'} className={classes.text}>NH통합IT센터</MenuItem>
+          <MenuItem value={'nhit'} className={classes.text}>농협정보시스템</MenuItem>
         </Select>
-        {/* <FormHelperText>Without label</FormHelperText> */}
       </FormControl>
     </div>
   );
