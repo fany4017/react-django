@@ -34,12 +34,10 @@ const SiteChoice = (props) => {
           className={classes.selectEmpty, classes.text}
           inputProps={{ 'aria-label': 'Without label' }}
         >
-          <MenuItem value="" className={classes.text}>
-            <em>사이트를 선택하세요</em>
-          </MenuItem>
-          <MenuItem value={'nhlife'} className={classes.text}>NH농협생명</MenuItem>
+          <MenuItem value={'nhlife'} className={classes.text}>NH농협생명보험</MenuItem>
           <MenuItem value={'nhitcenter'} className={classes.text}>NH통합IT센터</MenuItem>
           <MenuItem value={'nhit'} className={classes.text}>농협정보시스템</MenuItem>
+          <MenuItem value={'nhproperty'} className={classes.text}>NH농협손해보험</MenuItem>
         </Select>
       </FormControl>
     </div>

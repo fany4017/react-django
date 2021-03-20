@@ -107,7 +107,7 @@ const Dinner = (props) => {
     }
     return (
         <div className={classes.text}>
-            <div className={classes.li}>{dinner1}</div><br/>
+            <div>{dinner1}</div><br/>
             <div>{dinner2}</div><br/>
             <div>{dinner3}</div>
         </div>

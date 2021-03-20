@@ -9,7 +9,7 @@ import Guide from './Guide';
 const useStyles = makeStyles((theme) => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
-    backgroundColor:'#ff6f00',
+    backgroundColor:'#00e676',
   },
   text :{ 
     fontFamily: 'Nanum Pen Script',

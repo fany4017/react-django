@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
         fontWeight: 'Bold',
         color: 'black',
         fontSize:'15px',
-        //textAlign: 'center',
     }
 }));
 
@@ -132,8 +131,8 @@ const Morning = (props) => {
     return (
         <div className={classes.text}>
             {/* 위에서 셋팅한 breakfast1 과, breakfast2 를 뿌려준다. 그럼 끝~~~ */}
-            <div className={classes.li}>{breakfast1}</div><br/>
-            <div className={classes.li}>{breakfast2}</div><br/>
+            <div>{breakfast1}</div><br/>
+            <div>{breakfast2}</div><br/>
         </div>
     )
 }

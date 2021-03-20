@@ -6,6 +6,10 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const useStyles = makeStyles((theme) => ({
+
+    background:{
+        backgroundColor : '#e0f2f1',
+    },
     root: {
         width: '99%',
         paddingLeft: '2%',
@@ -20,11 +24,19 @@ const useStyles = makeStyles((theme) => ({
         fontSize: theme.typography.pxToRem(15),
         color: theme.palette.text.secondary,
     },
-    text :{ 
+    textTitle :{ 
+        fontFamily: 'NanumGothic-Bold',
+        fontWeight: 'Bold',
+        color: 'black',
+        fontSize:'16px',
+        textAlign: 'left',
+    },
+    textDetail :{ 
         fontFamily: 'NanumGothic-Bold',
         fontWeight: 'Bold',
         color: 'black',
         fontSize:'12px',
+        textAlign: 'left',
     },
 }));
 
@@ -73,17 +85,17 @@ const Notice = () => {
         {/* Hero unit */}
         <div className={classes.root}>
             {posts.map((post) => (
-                <Accordion expanded={expanded === 'panel'+post.id} onChange={handleChange('panel'+post.id)}>
+                <Accordion className={classes.background} expanded={expanded === 'panel'+post.id} onChange={handleChange('panel'+post.id)}>
                     <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                     >
-                    <Typography className={classes.heading, classes.text}>관리자</Typography>&nbsp;&nbsp;
-                    <Typography className={classes.secondaryHeading, classes.text}>{post.title}</Typography>
+                    <Typography className={classes.heading, classes.textTitle}>[관리자]</Typography>&nbsp;&nbsp;
+                    <Typography className={classes.secondaryHeading, classes.textTitle}>{post.title}</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                    <Typography className={classes.text}>
+                    <Typography className={classes.textDetail}>
                         {post.content}
                     </Typography>
                     </AccordionDetails><br/>

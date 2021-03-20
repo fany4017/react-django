@@ -11,12 +11,12 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import NhlifeMap from './NhlifeMap';
 import NhitcenterMap from './NhitcenterMap';
 import NhitMap from './NhitMap';
+import NhpropertyMap from './NhpropertyMap';
 
 const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
 
     background:{
       backgroundColor : '#e0f2f1',
-      //padding: theme.spacing(2, 2, 4),
     },
     paper: {
         marginTop: '-10px',
@@ -65,7 +65,7 @@ export default function MainSiteList() {
             <Avatar className={classes.avatar}>
             <RoomIcon />
             </Avatar>
-            <Typography className={classes.text}>제휴 법인 목록</Typography><br/>
+            <Typography className={classes.text}>* 제휴 식당 목록 *</Typography><br/>
             <main>
                 <Accordion className={classes.background} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                     <AccordionSummary
@@ -73,7 +73,7 @@ export default function MainSiteList() {
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                     >
-                    <Typography className={classes.textTitle}>NH농협생명보험 직원식당
+                    <Typography className={classes.textTitle}>NH농협생명보험
                     <Typography className={classes.textDetail}>서울 서대문구 통일로 87 NH농협생명빌딩 동관 20F</Typography>
                     </Typography>
                     </AccordionSummary>
@@ -87,7 +87,7 @@ export default function MainSiteList() {
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                     >
-                    <Typography className={classes.textTitle}>NH통합IT센터 직원식당
+                    <Typography className={classes.textTitle}>NH통합IT센터
                     <Typography className={classes.textDetail}>경기도 의왕시 포일동 617 NH통합IT센터 3F</Typography>
                     </Typography>
                     </AccordionSummary>
@@ -101,12 +101,26 @@ export default function MainSiteList() {
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                     >
-                    <Typography className={classes.textTitle}>농협정보시스템 직원식당
+                    <Typography className={classes.textTitle}>농협정보시스템
                     <Typography className={classes.textDetail}>서울특별시 서초구 양재2동 매헌로 24 B1</Typography>
                     </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                         <NhitMap />
+                    </AccordionDetails><br/>
+                </Accordion>
+                <Accordion className={classes.background} expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1bh-content"
+                    id="panel1bh-header"
+                    >
+                    <Typography className={classes.textTitle}>NH농협손해보험 (KT&G 서대문타워)
+                    <Typography className={classes.textDetail}>서울 서대문구 충정로 60 B1</Typography>
+                    </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <NhpropertyMap />
                     </AccordionDetails><br/>
                 </Accordion>
             </main>
