@@ -1,6 +1,6 @@
 /* 사용 소스 */
 import 'date-fns';
-import React from 'react';
+import React, {useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -37,6 +37,12 @@ const Detail = (props) => {
   
   //const site = match.params.site; //main에서 전달된 url에서 site 부분만 가져옴
   const [site, setSite] = React.useState('nhlife');
+  useEffect(() => {
+    if(props != ''){
+      setSite(props.site);
+    }
+  }, [])
+  
   //앞단에서 위치정보가져와서 가장 가까운 지점으로 초기 셋팅
   //const [site, setSite] = React.useState(props.site);
   const handleSetSite = e => {
@@ -71,7 +77,7 @@ const Detail = (props) => {
         {/* Hero unit */}
         <Container className={classes.cardGrid} maxWidth="md">
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          {/* <Typography className={classes.text}>접속 위치기준으로 가장 가까운 사이트가 자동 설정됩니다</Typography> */}
+          <Typography className={classes.text}>접속 위치기준으로 가장 가까운 사이트가 자동 설정됩니다</Typography>
           <Grid container justify="space-around">
             <SiteChoice setSite={handleSetSite} site={site} />
             {/* <DetailChoice /> */}

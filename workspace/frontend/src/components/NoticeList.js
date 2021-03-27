@@ -65,7 +65,14 @@ const Notice = () => {
     try{
         //api 통신하는 방법은 axios 랑 fetch 가 있는데 fetch 를 사용함
         //그 이유는 내가 참고한 사이트가 fetch 를 쓰길래 
-        const res = await fetch('http://3.36.126.189/api/notice');
+
+        /* 로컬 */
+        //const res = await fetch('http://127.0.0.1:8000/api/notice');
+
+         /* 운영 */
+        const res = await fetch('https://nonghyup-babsang.com/api/notice');
+
+
         const data = await res.json(); //res 에 결과가 담기고 그걸 json 으로 파싱해서 data에 담음
         setPosts(data);//data 값이 있으면 posts에 셋팅
 

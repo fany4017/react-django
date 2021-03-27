@@ -62,7 +62,12 @@ export default function AdvertisementList() {
 
     try{
 
-        const res = await fetch('http://3.36.126.189/api/advertisement/');
+        /* 로컬 서버 호출 */
+        //const res = await fetch('http://127.0.0.1:8000/api/advertisement/');
+        
+        /* 운영 서버 호출 */
+        const res = await fetch('https://nonghyup-babsang.com/api/advertisement/');
+
         const data = await res.json(); //res 에 결과가 담기고 그걸 json 으로 파싱해서 data에 담음
         setPosts(data);//data 값이 있으면 posts에 셋팅
 

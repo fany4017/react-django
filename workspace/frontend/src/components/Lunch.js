@@ -47,7 +47,13 @@ const Lunch = (props) => {
 
         try{
 
-            const res = await fetch('http://3.36.126.189/api/cafeteria/'+site+'/'+date);
+            /* 로컬 */
+            //const res = await fetch('http://127.0.0.1:8000/api/cafeteria/'+site+'/'+date);
+
+            /* 운영 */
+            const res = await fetch('https://nonghyup-babsang.com/api/cafeteria/'+site+'/'+date);
+            //const res = await fetch('http://3.36.126.189/api/cafeteria/'+site+'/'+date);
+
             const data = await res.json();
             setPosts(data);//data 값이 있으면 posts에 셋팅
 

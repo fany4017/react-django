@@ -62,7 +62,14 @@ const ResturantsList = props => {
   const fetchInitialData = async () => {
     setLoading(true);
     try{
-      const res = await fetch('http://3.36.126.189/api/resturant/');
+
+      
+      /* 로컬 서버 호출 */
+      //const res = await fetch('http://127.0.0.1:8000/api/resturant');
+
+       /* 운영 서버 호출 */
+      const res = await fetch('https://nonghyup-babsang.com/api/resturant');
+
       const posts = await res.json();
      
       function isSite(element)  {

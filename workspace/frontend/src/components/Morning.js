@@ -52,13 +52,21 @@ const Morning = (props) => {
         try{
             //api 통신하는 방법은 axios 랑 fetch 가 있는데 fetch 를 사용함
             //그 이유는 내가 참고한 사이트가 fetch 를 쓰길래 
-            const res = await fetch('http://3.36.126.189/api/cafeteria/'+site+'/'+date);
+
+            /* 로컬 서버 호출 */
+            //const res = await fetch('http://127.0.0.1:8000/api/cafeteria/'+site+'/'+date);
+
+            /* 운영 서버 호출 */
+            const res = await fetch('https://nonghyup-babsang.com/api/cafeteria/'+site+'/'+date);
+            //const res = await fetch('http://3.36.126.189/api/cafeteria/'+site+'/'+date);
+
+
             const data = await res.json(); //res 에 결과가 담기고 그걸 json 으로 파싱해서 data에 담음
             //api서버에서 리턴해줄 값이 없으면 detail : 'Not found.' 를 전달하는데,
             // Not found. 가 아니면 값을 알맞게 편집해서 뿌려줌 (데이터가 있는 케이스)
             //console.log('data:'+data);
             setPosts(data);//data 값이 있으면 posts에 셋팅
-            console.log(data);
+            //console.log(data);
             if(data.detail != 'Not found.'){ // 화면에 뿌려줄 데이터가 있으면 
 
                 // 예를들어, http://127.0.0.1:8000/api/cafeteria/nhlife/2021-03-04 를 요청하면
