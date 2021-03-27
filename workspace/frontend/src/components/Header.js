@@ -1,21 +1,21 @@
+/* 사용 소스 */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
 import EcoIcon from '@material-ui/icons/Eco';
 import lightBlue from '@material-ui/core/colors/purple';
-import Guide from './Guide';
+import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles((theme) => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
-    backgroundColor:'#00e676',
+    backgroundColor:'#64dd17',
   },
   text :{ 
     fontFamily: 'Nanum Pen Script',
     fontWeight: 'Bold',
     color: 'white',
-    fontSize:'25px'
+    fontSize:'20px'
   },
   palette: {
     primary: lightBlue,
@@ -29,7 +29,7 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
-        <Button size="large" className={classes.text}><EcoIcon></EcoIcon> 농협인의 밥상</Button>
+        <EcoIcon className={classes.text}></EcoIcon><Typography className={classes.text}>농협인의 밥상</Typography>
         {/* <Guide /> */}
       </Toolbar>
     </React.Fragment>

@@ -75,3 +75,14 @@ class Notice(models.Model):
 
     class Meta:
         ordering = ['-enroll_date']  # 정렬 순서
+
+
+class Advertisement(models.Model):
+    link = models.CharField(max_length=300, blank=False,
+                            help_text="링크를 입력하세요")  # 링크
+    useyn = models.CharField(max_length=1, blank=False,
+                             default='y', help_text="사용여부를 입력하세요(기본값은 y입니다)")  # 내용
+    enroll_date = models.DateTimeField('date enrolled')  # 등록일
+
+    class Meta:
+        ordering = ['-enroll_date']  # 정렬 순서

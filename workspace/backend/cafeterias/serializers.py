@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Site, Menu, ResturantInfo, Notice  # 테이블 임포트
+from .models import Site, Menu, ResturantInfo, Notice, Advertisement  # 테이블 임포트
 
 
 class CafeteriasSerializer(serializers.ModelSerializer):  # 모델(테이블)별로 다름
@@ -21,4 +21,10 @@ class ResturantSerializer(serializers.ModelSerializer):
 class NoticeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Notice
+        fields = '__all__'
+
+
+class AdvertisementSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Advertisement
         fields = '__all__'

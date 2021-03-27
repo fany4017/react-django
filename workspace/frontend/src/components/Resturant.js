@@ -1,3 +1,4 @@
+/* 사용 소스 */
 import 'date-fns';
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
@@ -7,12 +8,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import SiteChoice from './SiteChoice';
 import 'fontsource-roboto';
-
 import {
   MuiPickersUtilsProvider,
 } from '@material-ui/pickers';
-
-import Header from './Header';
+import Typography from '@material-ui/core/Typography';
 import ResturantList from './ResturantList';
 
 const useStyles = makeStyles((theme) => ({
@@ -20,12 +19,21 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '0px',
     paddingBottom: theme.spacing(8),
   },
+  text :{ 
+    fontFamily: 'Nanum Pen Script',
+    fontWeight: 'Bold',
+    color: 'black',
+    fontSize:'25px',
+    textAlign: 'center',
+  },
 }));
 
-const Resturant = ({match}) => {
+const Resturant = (props) => {
 
   const classes = useStyles();
   const [site, setSite] = React.useState('nhlife');
+  //앞단에서 위치정보가져와서 가장 가까운 지점으로 초기 셋팅
+  //const [site, setSite] = React.useState(props.site);
   
   const handleSetSite = e => {
     setSite(e.target.value);
@@ -38,10 +46,19 @@ const Resturant = ({match}) => {
         {/* Hero unit */}
         <Container className={classes.cardGrid} maxWidth="md">
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <Typography className={classes.text}>* 현직자가 직접 엄선한 맛집 *</Typography>
           <Grid container justify="space-around">
             <SiteChoice setSite={handleSetSite} site={site} />
             {/* <DetailChoice /> */}
           </Grid>
+          {/* {
+          (function() {
+            if (site === "nhlife") return (<NhlifeResturantMap></NhlifeResturantMap>);
+            if (site === 'nhproperty') return (<div>농협손해</div>);
+            if (site === 'nhit') return (<div>농협정보</div>);
+          })()
+          } */}
+          <br></br>
           <Grid container justify="space-around">
             <ResturantList site={site}/>
           </Grid>

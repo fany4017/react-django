@@ -1,16 +1,18 @@
+/* 사용 소스 */
 import React,{useState, useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import GradeIcon from '@material-ui/icons/Grade';
 const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
 
     li: {
         borderBottom: "1.5px solid rgb(212, 212, 212)",
         paddingBottom: '10px',
     },
+    titleTtext :{
+        fontWeight: 'Bold',
+        color: 'red',
+    },
     text :{ 
         fontFamily: 'NanumGothic-Bold',
-        fontWeight: 'Bold',
-        color: 'black',
         fontSize:'15px',
     }
 }));
@@ -33,6 +35,7 @@ const Morning = (props) => {
 
     const[breakfast1, setBreakfast1] = useState('준비중입니다'); 
     const[breakfast2, setBreakfast2] = useState('');
+    const[breakfast3, setBreakfast3] = useState('');
 
     const[loading, setLoading] = useState(false); // api 호출했을때 속도가 늦어질 것을 대비해서 loading 변수를 만듬
     const[posts, setPosts] = useState('');
@@ -49,13 +52,13 @@ const Morning = (props) => {
         try{
             //api 통신하는 방법은 axios 랑 fetch 가 있는데 fetch 를 사용함
             //그 이유는 내가 참고한 사이트가 fetch 를 쓰길래 
-            const res = await fetch('http://127.0.0.1:8000/api/cafeteria/'+site+'/'+date);
+            const res = await fetch('http://3.36.126.189/api/cafeteria/'+site+'/'+date);
             const data = await res.json(); //res 에 결과가 담기고 그걸 json 으로 파싱해서 data에 담음
             //api서버에서 리턴해줄 값이 없으면 detail : 'Not found.' 를 전달하는데,
             // Not found. 가 아니면 값을 알맞게 편집해서 뿌려줌 (데이터가 있는 케이스)
-            console.log('data:'+data);
+            //console.log('data:'+data);
             setPosts(data);//data 값이 있으면 posts에 셋팅
-
+            console.log(data);
             if(data.detail != 'Not found.'){ // 화면에 뿌려줄 데이터가 있으면 
 
                 // 예를들어, http://127.0.0.1:8000/api/cafeteria/nhlife/2021-03-04 를 요청하면
@@ -88,34 +91,59 @@ const Morning = (props) => {
                 // breakfast1Arr 배열에 담는다, 
                 const breakfast1Arr = data.breakfast_type_1.split(",");
                 const breakfast2Arr = data.breakfast_type_2.split(",");
+                const breakfast3Arr = data.breakfast_type_3.split(",");
+
                 const breakfast1_element = []; // breakfast1_element 라는 조식메뉴1을 담을 빈배열을 만들어서
                 const breakfast2_element = [];
+                const breakfast3_element = [];
 
-                for(let i=0;i<breakfast1Arr.length;i++){ //breakfast1Arr를 돌면서 데이터를 뽑는다.
-                    if(i==0){ // 각 첫번째 값인 대표메뉴 뒤에는 이모티콘 적용
-                        // breakfast1_element 배열에 push
-                        breakfast1_element.push(<li>{breakfast1Arr[i]}😊</li>)
-                    }else{
-                        breakfast1_element.push(<li>{breakfast1Arr[i]}</li>)
-                    }
-                };
+                setBreakfast1('');
+                setBreakfast2('');
+                setBreakfast3('');
+
+                if(breakfast1Arr.length >= 0 || breakfast1Arr[0] != ''){
+                    for(let i=0;i<breakfast1Arr.length;i++){ //breakfast1Arr를 돌면서 데이터를 뽑는다.
+                        if(i==0){ // 각 첫번째 값인 대표메뉴 뒤에는 이모티콘 적용
+                            // breakfast1_element 배열에 push
+                            breakfast1_element.push(<li><span className={classes.titleTtext}>{breakfast1Arr[i]}</span>😊</li>)
+                        }else{
+                            breakfast1_element.push(<li>{breakfast1Arr[i]}</li>)
+                        }
+                    };
+                }
                 //즉 breakfast1_element 에는 <li>상세메뉴1</li> <li>상세메뉴2</li> ... 이런 형태로 html 이 담기게되고
                 //그 결과를 const[breakfast1, setBreakfast1] = useState('준비중입니다'); 
                 //에 선언한 setBreakfast1 메소드를 사용해서 breakfast1 값을 셋팅한다.
                 setBreakfast1(breakfast1_element);
 
                 //조식 메뉴 2에 대해서도 마찬가지로 처리한다.
-                for(let i=0;i<breakfast2Arr.length;i++){
-                    if(i==0){
-                        breakfast2_element.push(<li>{breakfast2Arr[i]}😊</li>)
-                    }else{
-                        breakfast2_element.push(<li>{breakfast2Arr[i]}</li>)
-                    }
-                };
+                if(breakfast2Arr.length >= 0 && breakfast2Arr[0] != ''){
+                    for(let i=0;i<breakfast2Arr.length;i++){
+                        if(i==0){
+                            breakfast2_element.push(<li><span className={classes.titleTtext}>{breakfast2Arr[i]}</span>😊</li>)
+                        }else{
+                            breakfast2_element.push(<li>{breakfast2Arr[i]}</li>)
+                        }
+                    };
+                }
                 setBreakfast2(breakfast2_element);
+
+                //조식 메뉴 3에 대해서도 마찬가지로 처리한다.
+                if(breakfast3Arr.length >= 0 && breakfast3Arr[0] != ''){
+                    for(let i=0;i<breakfast3Arr.length;i++){
+                        if(i==0){
+                            breakfast3_element.push(<li><span className={classes.titleTtext}>{breakfast3Arr[i]}</span>😊</li>)
+                        }else{
+                            breakfast3_element.push(<li>{breakfast3Arr[i]}</li>)
+                        }
+                    };
+                }
+                setBreakfast3(breakfast3_element);
+
             }else{ // 뿌려줄 데이터가 없으면 등록전입니다 셋팅
                 setBreakfast1('등록전입니다');
                 setBreakfast2('');
+                setBreakfast3('');
             }
         }catch(e){
             console.log(e);
@@ -133,6 +161,7 @@ const Morning = (props) => {
             {/* 위에서 셋팅한 breakfast1 과, breakfast2 를 뿌려준다. 그럼 끝~~~ */}
             <div>{breakfast1}</div><br/>
             <div>{breakfast2}</div><br/>
+            <div>{breakfast3}</div><br/>
         </div>
     )
 }

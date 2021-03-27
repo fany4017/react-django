@@ -7,4 +7,5 @@ urlpatterns = [
     path('cafeteria/<slug:site>/<slug:s_date>', views.DetailMenus.as_view()),
     path('resturant/', views.ListResturant.as_view()),
     path('notice/', views.ListNotice.as_view()),
+    path('advertisement/', views.ListAdvertisement.as_view()),
 ]

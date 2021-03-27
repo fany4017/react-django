@@ -1,3 +1,4 @@
+/* 사용 소스 */
 import React,{useState, useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -6,6 +7,10 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
     li: {
         borderBottom: "1.5px solid rgb(212, 212, 212)",
         paddingBottom: '10px',
+    },
+    titleTtext :{
+        fontWeight: 'Bold',
+        color: 'red',
     },
     text :{ 
         fontFamily: 'NanumGothic-Bold',
@@ -26,7 +31,7 @@ const Dinner = (props) => {
     let date =  year + "-" + month + "-" + day;
     let site = props.site;
 
-    const[dinner1, setdinner1] = useState('준비중입니다');
+    const[dinner1, setdinner1] = useState('등록전입니다');
     const[dinner2, setdinner2] = useState('');
     const[dinner3, setdinner3] = useState('');
 
@@ -35,7 +40,7 @@ const Dinner = (props) => {
 
     useEffect( () => {
         fetchInitialData(); // useEffect 안에서 바로 fetch를 사용하지 말고, fetch 역할의 함수를 실행할것!
-    },[date] )
+    },[site, date] )
 
     const fetchInitialData = async () => {
         
@@ -43,10 +48,10 @@ const Dinner = (props) => {
 
         try{
 
-            const res = await fetch('http://127.0.0.1:8000/api/cafeteria/'+site+'/'+date);
+            const res = await fetch('http://3.36.126.189/api/cafeteria/'+site+'/'+date);
             const data = await res.json();
             setPosts(data);//data 값이 있으면 posts에 셋팅
-
+            
             if(data.detail != 'Not found.'){
                 const dinner1Arr = data.dinner_type_1.split(",");
                 const dinner2Arr = data.dinner_type_2.split(",");
@@ -56,10 +61,14 @@ const Dinner = (props) => {
                 const dinner2_element = [];
                 const dinner3_element = [];
 
-                if(dinner1Arr.length > 1){
+                setdinner1('');
+                setdinner2('');
+                setdinner3('');
+
+                if(dinner1Arr.length >= 0 || dinner1Arr[0] != ''){
                     for(let i=0;i<dinner1Arr.length;i++){
                         if(i==0){
-                            dinner1_element.push(<li>{dinner1Arr[i]}😊</li>)
+                            dinner1_element.push(<li><span className={classes.titleTtext}>{dinner1Arr[i]}</span>😊</li>)
                         }else{
                             dinner1_element.push(<li>{dinner1Arr[i]}</li>)
                         }
@@ -67,21 +76,21 @@ const Dinner = (props) => {
                     setdinner1(dinner1_element);
                 }
                 
-                if(dinner2Arr.length > 1){
+                if(dinner2Arr.length > 0 && dinner2Arr[0] != ''){
                     for(let i=0;i<dinner2Arr.length;i++){
                         if(i==0){
-                            dinner2_element.push(<li>{dinner2Arr[i]}😊</li>)
+                            dinner2_element.push(<li><span className={classes.titleTtext}>{dinner2Arr[i]}</span>😊</li>)
                         }else{
                             dinner2_element.push(<li>{dinner2Arr[i]}</li>)
                         }
                     };
                     setdinner2(dinner2_element);
                 }
-                
-                if(dinner3Arr.length > 1){
+
+                if(dinner3Arr.length > 0 && dinner3Arr[0] != ''){
                     for(let i=0;i<dinner3Arr.length;i++){
                         if(i===0){
-                            dinner3_element.push(<li>{dinner3Arr[i]}😊</li>)
+                            dinner3_element.push(<li><span className={classes.titleTtext}>{dinner3Arr[i]}</span>😊</li>)
                         }else{
                             dinner3_element.push(<li>{dinner3Arr[i]}</li>)
                         }

@@ -1,3 +1,4 @@
+/* 사용 소스 */
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -35,9 +36,9 @@ const SiteChoice = (props) => {
           inputProps={{ 'aria-label': 'Without label' }}
         >
           <MenuItem value={'nhlife'} className={classes.text}>NH농협생명보험</MenuItem>
+          <MenuItem value={'nhproperty'} className={classes.text}>NH농협손해보험</MenuItem>
           <MenuItem value={'nhitcenter'} className={classes.text}>NH통합IT센터</MenuItem>
           <MenuItem value={'nhit'} className={classes.text}>농협정보시스템</MenuItem>
-          <MenuItem value={'nhproperty'} className={classes.text}>NH농협손해보험</MenuItem>
         </Select>
       </FormControl>
     </div>

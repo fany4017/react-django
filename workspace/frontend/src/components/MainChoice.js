@@ -1,3 +1,4 @@
+/* 미 사용 소스 !!!!!!!!!!!!!!!!! */
 import React from 'react'; //이건 무조건 있어야함
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -6,10 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import 'fontsource-roboto';
-import { Link } from 'react-router-dom';
 import Test from './Test';
 import Avatar from '@material-ui/core/Avatar';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import RoomIcon from '@material-ui/icons/Room';
 const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
 

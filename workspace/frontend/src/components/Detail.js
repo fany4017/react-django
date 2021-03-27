@@ -1,3 +1,4 @@
+/* 사용 소스 */
 import 'date-fns';
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
@@ -9,6 +10,7 @@ import 'fontsource-roboto';
 import {MuiPickersUtilsProvider,KeyboardDatePicker,} from '@material-ui/pickers';
 import Contents from './Contents';
 import SiteChoice from './SiteChoice';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -21,21 +23,22 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(8),
   },
   text :{ 
-    fontFamily: 'NanumGothic-Bold',
+    fontFamily: 'Nanum Pen Script',
     fontWeight: 'Bold',
     color: 'black',
-    fontSize:'15px',
+    fontSize:'14px',
+    textAlign: 'center',
   },
 }));
 
-const Detail = () => { //match 로 Main.js에서 site 값을 가져올수있음 /detail/nhlife 의 nhlife 값
+const Detail = (props) => {
   
   const classes = useStyles();
-
+  
   //const site = match.params.site; //main에서 전달된 url에서 site 부분만 가져옴
-  
   const [site, setSite] = React.useState('nhlife');
-  
+  //앞단에서 위치정보가져와서 가장 가까운 지점으로 초기 셋팅
+  //const [site, setSite] = React.useState(props.site);
   const handleSetSite = e => {
     setSite(e.target.value);
   };
@@ -64,17 +67,17 @@ const Detail = () => { //match 로 Main.js에서 site 값을 가져올수있음 
   return (
     <React.Fragment>
       <CssBaseline />
-      
       <main>
         {/* Hero unit */}
         <Container className={classes.cardGrid} maxWidth="md">
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          {/* <Typography className={classes.text}>접속 위치기준으로 가장 가까운 사이트가 자동 설정됩니다</Typography> */}
           <Grid container justify="space-around">
             <SiteChoice setSite={handleSetSite} site={site} />
             {/* <DetailChoice /> */}
           </Grid>
           <Grid container justify="space-around">
-            <KeyboardDatePicker className={classes.text}
+            <KeyboardDatePicker
               margin="normal"
               id="date-picker-dialog"
               label="일자를 선택하세요"

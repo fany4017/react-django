@@ -1,3 +1,4 @@
+/* 사용 소스 */
 import React, {useState, useEffect} from 'react';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -61,7 +62,7 @@ const ResturantsList = props => {
   const fetchInitialData = async () => {
     setLoading(true);
     try{
-      const res = await fetch('http://127.0.0.1:8000/api/resturant/');
+      const res = await fetch('http://3.36.126.189/api/resturant/');
       const posts = await res.json();
      
       function isSite(element)  {

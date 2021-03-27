@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+/* 사용 소스 */
+import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import 'fontsource-roboto';
@@ -12,7 +13,6 @@ import NhlifeMap from './NhlifeMap';
 import NhitcenterMap from './NhitcenterMap';
 import NhitMap from './NhitMap';
 import NhpropertyMap from './NhpropertyMap';
-
 const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
 
     background:{
@@ -50,7 +50,11 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
         fontSize:'12px',
         textAlign: 'left',
     },
-    
+    card: {
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+    },
 }));
 
 export default function MainSiteList() {
@@ -87,6 +91,20 @@ export default function MainSiteList() {
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                     >
+                    <Typography className={classes.textTitle}>NH농협손해보험 (KT&G 서대문타워)
+                    <Typography className={classes.textDetail}>서울 서대문구 충정로 60 B1</Typography>
+                    </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <NhpropertyMap />
+                    </AccordionDetails><br/>
+                </Accordion>
+                <Accordion className={classes.background} expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1bh-content"
+                    id="panel1bh-header"
+                    >
                     <Typography className={classes.textTitle}>NH통합IT센터
                     <Typography className={classes.textDetail}>경기도 의왕시 포일동 617 NH통합IT센터 3F</Typography>
                     </Typography>
@@ -95,7 +113,7 @@ export default function MainSiteList() {
                         <NhitcenterMap />
                     </AccordionDetails><br/>
                 </Accordion>
-                <Accordion className={classes.background} expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+                <Accordion className={classes.background} expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
                     <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1bh-content"
@@ -109,20 +127,7 @@ export default function MainSiteList() {
                         <NhitMap />
                     </AccordionDetails><br/>
                 </Accordion>
-                <Accordion className={classes.background} expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
-                    <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1bh-content"
-                    id="panel1bh-header"
-                    >
-                    <Typography className={classes.textTitle}>NH농협손해보험 (KT&G 서대문타워)
-                    <Typography className={classes.textDetail}>서울 서대문구 충정로 60 B1</Typography>
-                    </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <NhpropertyMap />
-                    </AccordionDetails><br/>
-                </Accordion>
+                
             </main>
         </div>
     )

@@ -1,18 +1,18 @@
 /* 사용 소스 */
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import NoticeList from './NoticeList';
+import AdvertisementList from './AdvertisementList';
 
-const Notice = () => {
+const Advertisement = () => {
   return (
     <React.Fragment>
       <CssBaseline />
       {/* <Header /> */}
       <main>
-        <NoticeList />
+        <AdvertisementList />
       </main>
     </React.Fragment>
   );
 }
 
-export default Notice
+export default Advertisement
