@@ -15,8 +15,9 @@ import NhitMap from './NhitMap';
 import NhpropertyMap from './NhpropertyMap';
 const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
 
+    //#e0f2f1, #dcedc8
     background:{
-      backgroundColor : '#e0f2f1',
+      backgroundColor : '#e8f5e9',
     },
     paper: {
         marginTop: '-10px',
@@ -30,17 +31,26 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
         alignItems: 'center',
     },
     text :{ 
-        fontFamily: 'Nanum Pen Script',
+        //Nanum Pen Script
+        fontFamily: 'SongMyung-Regular',
         fontWeight: 'Bold',
         color: 'black',
-        fontSize:'25px',
+        fontSize:'20px',
         textAlign: 'center',
     },
     textTitle :{ 
-        fontFamily: 'NanumGothic-Bold',
+        //NanumGothic-Bold
+        fontFamily: 'SongMyung-Regular',
         fontWeight: 'Bold',
         color: 'black',
-        fontSize:'18px',
+        fontSize:'16px',
+        textAlign: 'left',
+    },
+    textSub :{ 
+        fontFamily: 'SongMyung-Regular',
+        fontWeight: 'Bold',
+        color: 'black',
+        fontSize:'14px',
         textAlign: 'left',
     },
     textDetail :{ 
@@ -69,7 +79,7 @@ export default function MainSiteList() {
             <Avatar className={classes.avatar}>
             <RoomIcon />
             </Avatar>
-            <Typography className={classes.text}>* 제휴 식당 목록 *</Typography><br/>
+            <Typography className={classes.text}>제휴 식당 목록</Typography><br/>
             <main>
                 <Accordion className={classes.background} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                     <AccordionSummary
@@ -78,7 +88,7 @@ export default function MainSiteList() {
                     id="panel1bh-header"
                     >
                     <Typography className={classes.textTitle}>NH농협생명보험
-                    <Typography className={classes.textDetail}>서울 서대문구 통일로 87 NH농협생명빌딩 동관 20F</Typography>
+                    <Typography className={classes.textDetail}>서울 서대문구 통일로 87 NH농협생명 동관 20F</Typography>
                     </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
@@ -91,7 +101,7 @@ export default function MainSiteList() {
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                     >
-                    <Typography className={classes.textTitle}>NH농협손해보험 (KT&G 서대문타워)
+                    <Typography className={classes.textTitle}>NH농협손해보험<span className={classes.textSub}> (KT&G 서대문타워)</span>
                     <Typography className={classes.textDetail}>서울 서대문구 충정로 60 B1</Typography>
                     </Typography>
                     </AccordionSummary>

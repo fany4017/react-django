@@ -87,7 +87,8 @@ const useStyles = makeStyles((theme) => ({
     color : '#651fff',
   },
   text :{ 
-    fontFamily: 'NanumGothic-Bold',
+    //NanumGothic-Bold
+    fontFamily: 'SongMyung-Regular',
     fontWeight: 'Bold',
     color: 'black',
     fontSize:'12px',
@@ -171,7 +172,7 @@ export default function ScrollableTabsButtonForce() {
             }
     
         });
-        //alert('현 위치에서 가장 가까운 건물은 : '+minSite)
+        
         setSite(minSite);
     });
 

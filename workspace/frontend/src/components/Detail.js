@@ -23,10 +23,11 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(8),
   },
   text :{ 
-    fontFamily: 'Nanum Pen Script',
+    //Nanum Pen Script
+    fontFamily: 'SongMyung-Regular',
     fontWeight: 'Bold',
     color: 'black',
-    fontSize:'14px',
+    fontSize:'12px',
     textAlign: 'center',
   },
 }));
@@ -77,7 +78,7 @@ const Detail = (props) => {
         {/* Hero unit */}
         <Container className={classes.cardGrid} maxWidth="md">
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <Typography className={classes.text}>접속 위치기준으로 가장 가까운 사이트가 자동 설정됩니다</Typography>
+          <Typography className={classes.text}>접속 위치 기준으로 가장 가까운 사이트가 자동 설정됩니다</Typography>
           <Grid container justify="space-around">
             <SiteChoice setSite={handleSetSite} site={site} />
             {/* <DetailChoice /> */}

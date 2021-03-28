@@ -17,17 +17,18 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
         alignItems: 'center',
     },
     text :{ 
-        fontFamily: 'Nanum Pen Script',
+        //Nanum Pen Script
+        fontFamily: 'SongMyung-Regular',
         fontWeight: 'Bold',
         color: 'black',
-        fontSize:'25px',
+        fontSize:'20px',
         textAlign: 'center',
     },
     textSub :{ 
-        fontFamily: 'Nanum Pen Script',
+        fontFamily: 'SongMyung-Regular',
         fontWeight: 'Bold',
         color: 'black',
-        fontSize:'14px',
+        fontSize:'10px',
         textAlign: 'center',
     },
     card: {
@@ -102,10 +103,9 @@ export default function AdvertisementList() {
         return <React.Fragment> 대기 중...</React.Fragment>;
     }
     return (
-        <div className={classes.paper}>
-            <Typography className={classes.text}>* 제휴 광고 *</Typography>
+        <div className={classes.paper}><br/>
             <Typography className={classes.textSub}> 해당앱은 파트너스 활동을 통해 일정액의 수수료를 제공받을 수 있습니다. </Typography>
-            <Typography className={classes.textSub}> 수수료는 더 나은 서비스 제공에 도움이됩니다. </Typography>
+            <Typography className={classes.textSub}> 수수료는 더 나은 서비스 제공에 도움이됩니다. </Typography><br/>
             <main>
                 <div >
                     <ins

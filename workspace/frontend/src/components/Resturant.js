@@ -20,12 +20,13 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(8),
   },
   text :{ 
-    fontFamily: 'Nanum Pen Script',
+    //Nanum Pen Script
+    fontFamily: 'SongMyung-Regular',
     fontWeight: 'Bold',
     color: 'black',
-    fontSize:'25px',
+    fontSize:'16px',
     textAlign: 'center',
-  },
+},
 }));
 
 const Resturant = (props) => {
@@ -46,7 +47,7 @@ const Resturant = (props) => {
         {/* Hero unit */}
         <Container className={classes.cardGrid} maxWidth="md">
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <Typography className={classes.text}>* 현직자가 직접 엄선한 맛집 *</Typography>
+        <Typography className={classes.text}>현직자가 직접 엄선한 맛집</Typography>
           <Grid container justify="space-around">
             <SiteChoice setSite={handleSetSite} site={site} />
             {/* <DetailChoice /> */}

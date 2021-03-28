@@ -39,11 +39,18 @@ const useStyles = makeStyles((theme) => ({
     padding:'0px',
   },
   text :{ 
-    fontFamily: 'NanumGothic-Bold',
+    //Nanum Pen Script
+    fontFamily: 'SongMyung-Regular',
     fontWeight: 'Bold',
     color: 'black',
-    fontSize:'10px',
-    //textAlign: 'center',
+    fontSize:'12px',
+  },
+  textOperation :{ 
+    //Nanum Pen Script
+    fontFamily: 'SongMyung-Regular',
+    fontWeight: 'Bold',
+    color: '#ef5350',
+    fontSize:'12px',
   },
 }));
 
@@ -121,7 +128,7 @@ const ResturantsList = props => {
                       <li>좌석형태 : {post.seat_type}</li><li>룸 여부 : {post.room_is}</li>
                     </Typography>
                     <Typography className={classes.text}>
-                      <li>영업시간 : {post.operating_time}</li>
+                      <li><span className={classes.textOperation}>영업시간 : {post.operating_time}</span></li>
                     </Typography>
                   </CardContent>
                   <CardActions>

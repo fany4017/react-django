@@ -8,12 +8,16 @@ import lightBlue from '@material-ui/core/colors/purple';
 import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles((theme) => ({
   toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
-    backgroundColor:'#64dd17',
+
+    //#69f0ae, #4caf50
+    //borderBottom: `1px solid ${theme.palette.divider}`,
+    //backgroundColor:'#64dd17',#69f0ae
+    backgroundColor:'#4caf50',
   },
   text :{ 
-    fontFamily: 'Nanum Pen Script',
-    fontWeight: 'Bold',
+    //fontFamily: 'Nanum Pen Script',Dokdo-Regular, SongMyung-Regular
+    fontFamily: 'SongMyung-Regular',
+    //fontWeight: 'Bold',
     color: 'white',
     fontSize:'20px'
   },

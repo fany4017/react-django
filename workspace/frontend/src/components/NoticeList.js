@@ -9,7 +9,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const useStyles = makeStyles((theme) => ({
 
     background:{
-        backgroundColor : '#e0f2f1',
+        backgroundColor : '#e8f5e9',
     },
     root: {
         width: '99%',
@@ -26,14 +26,14 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.text.secondary,
     },
     textTitle :{ 
-        fontFamily: 'NanumGothic-Bold',
+        fontFamily: 'SongMyung-Regular',
         fontWeight: 'Bold',
         color: 'black',
         fontSize:'16px',
         textAlign: 'left',
     },
     textDetail :{ 
-        fontFamily: 'NanumGothic-Bold',
+        fontFamily: 'SongMyung-Regular',
         fontWeight: 'Bold',
         color: 'black',
         fontSize:'12px',

@@ -13,8 +13,9 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
-  text :{ 
-    fontFamily: 'NanumGothic-Bold',
+  text :{
+    //NanumGothic-Bold
+    fontFamily: 'SongMyung-Regular',
     fontWeight: 'Bold',
     color: 'black',
     fontSize:'15px',

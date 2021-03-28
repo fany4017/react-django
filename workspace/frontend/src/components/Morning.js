@@ -9,11 +9,14 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
     },
     titleTtext :{
         fontWeight: 'Bold',
-        color: 'red',
+        color: '#f44336',
+        textDecoration : 'underline',
     },
-    text :{ 
-        fontFamily: 'NanumGothic-Bold',
+    text :{
+        //NanumGothic-Bold
+        fontFamily: 'SongMyung-Regular',
         fontSize:'15px',
+        fontWeight: 'Bold',
     }
 }));
 
@@ -113,7 +116,7 @@ const Morning = (props) => {
                     for(let i=0;i<breakfast1Arr.length;i++){ //breakfast1Arr를 돌면서 데이터를 뽑는다.
                         if(i==0){ // 각 첫번째 값인 대표메뉴 뒤에는 이모티콘 적용
                             // breakfast1_element 배열에 push
-                            breakfast1_element.push(<li><span className={classes.titleTtext}>{breakfast1Arr[i]}</span>😊</li>)
+                            breakfast1_element.push(<li><span className={classes.titleTtext}>{breakfast1Arr[i]}</span></li>)
                         }else{
                             breakfast1_element.push(<li>{breakfast1Arr[i]}</li>)
                         }
@@ -128,7 +131,7 @@ const Morning = (props) => {
                 if(breakfast2Arr.length >= 0 && breakfast2Arr[0] != ''){
                     for(let i=0;i<breakfast2Arr.length;i++){
                         if(i==0){
-                            breakfast2_element.push(<li><span className={classes.titleTtext}>{breakfast2Arr[i]}</span>😊</li>)
+                            breakfast2_element.push(<li><span className={classes.titleTtext}>{breakfast2Arr[i]}</span></li>)
                         }else{
                             breakfast2_element.push(<li>{breakfast2Arr[i]}</li>)
                         }
@@ -140,7 +143,7 @@ const Morning = (props) => {
                 if(breakfast3Arr.length >= 0 && breakfast3Arr[0] != ''){
                     for(let i=0;i<breakfast3Arr.length;i++){
                         if(i==0){
-                            breakfast3_element.push(<li><span className={classes.titleTtext}>{breakfast3Arr[i]}</span>😊</li>)
+                            breakfast3_element.push(<li><span className={classes.titleTtext}>{breakfast3Arr[i]}</span></li>)
                         }else{
                             breakfast3_element.push(<li>{breakfast3Arr[i]}</li>)
                         }

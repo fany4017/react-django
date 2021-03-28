@@ -53,3 +53,11 @@
   font-family: "NanumPenScript-Regular";
   src: url("./font/NanumPenScript-Regular.ttf");
 }
+@font-face {
+  font-family: "Dokdo-Regular";
+  src: url("./font/Dokdo-Regular.ttf");
+}
+@font-face {
+  font-family: "SongMyung-Regular";
+  src: url("./font/SongMyung-Regular.ttf");
+}
