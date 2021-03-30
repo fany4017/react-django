@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     },
     root: {
         width: '99%',
-        paddingLeft: '2%',
+        paddingLeft: '0%',
         paddingRight: '1%',
     },
     heading: {
@@ -29,14 +29,14 @@ const useStyles = makeStyles((theme) => ({
         fontFamily: 'SongMyung-Regular',
         fontWeight: 'Bold',
         color: 'black',
-        fontSize:'16px',
+        fontSize:'12px',
         textAlign: 'left',
     },
     textDetail :{ 
         fontFamily: 'SongMyung-Regular',
         fontWeight: 'Bold',
         color: 'black',
-        fontSize:'12px',
+        fontSize:'10px',
         textAlign: 'left',
     },
 }));

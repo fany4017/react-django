@@ -1,6 +1,6 @@
 /* 사용 소스 */
 import 'date-fns';
-import React from 'react';
+import React,{useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -26,15 +26,20 @@ const useStyles = makeStyles((theme) => ({
     color: 'black',
     fontSize:'16px',
     textAlign: 'center',
-},
+  },
 }));
 
 const Resturant = (props) => {
 
   const classes = useStyles();
-  const [site, setSite] = React.useState('nhlife');
   //앞단에서 위치정보가져와서 가장 가까운 지점으로 초기 셋팅
-  //const [site, setSite] = React.useState(props.site);
+  const [site, setSite] = React.useState(props.site);
+  useEffect(() => {
+    if(props != ''){
+      setSite(props.site);
+    }
+  }, [])
+  
   
   const handleSetSite = e => {
     setSite(e.target.value);

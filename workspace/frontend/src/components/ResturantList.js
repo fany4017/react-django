@@ -9,7 +9,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
+import Guide from './Guide';
+import ButtonBase from '@material-ui/core/ButtonBase';
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
     paddingTop: 'theme.spacing(6)',
@@ -19,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
+    width: '100%',
   },
   cardMedia: {
     paddingTop: '56.25%', // 16:9
@@ -31,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: 140,
     borderRadius: "4px",
-    //boxShadow: "0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)",
+    boxShadow: "0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)",
     position: "relative",
     zIndex: 1000
   },
@@ -40,17 +42,87 @@ const useStyles = makeStyles((theme) => ({
   },
   text :{ 
     //Nanum Pen Script
-    fontFamily: 'SongMyung-Regular',
+    fontFamily: 'NanumGothic-Bold',
     fontWeight: 'Bold',
     color: 'black',
     fontSize:'12px',
   },
   textOperation :{ 
     //Nanum Pen Script
-    fontFamily: 'SongMyung-Regular',
+    fontFamily: 'NanumGothic-Bold',
     fontWeight: 'Bold',
     color: '#ef5350',
     fontSize:'12px',
+  },
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    minWidth: 300,
+    width: '120%',
+  },
+  image: {
+    position: 'relative',
+    height: 200,
+    [theme.breakpoints.down('xs')]: {
+      width: '100% !important', // Overrides inline-style
+      height: 100,
+    },
+    '&:hover, &$focusVisible': {
+      zIndex: 1,
+      '& $imageBackdrop': {
+        opacity: 0.15,
+      },
+      '& $imageMarked': {
+        opacity: 0,
+      },
+      '& $imageTitle': {
+        border: '4px solid currentColor',
+      },
+    },
+  },
+  focusVisible: {},
+  imageButton: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: theme.palette.common.white,
+  },
+  imageSrc: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center 40%',
+  },
+  imageBackdrop: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    backgroundColor: theme.palette.common.black,
+    opacity: 0.4,
+    transition: theme.transitions.create('opacity'),
+  },
+  imageTitle: {
+    position: 'relative',
+    padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
+  },
+  imageMarked: {
+    height: 3,
+    width: 18,
+    backgroundColor: theme.palette.common.white,
+    position: 'absolute',
+    bottom: -2,
+    left: 'calc(50% - 9px)',
+    transition: theme.transitions.create('opacity'),
   },
 }));
 
@@ -85,7 +157,7 @@ const ResturantsList = props => {
           return true;
         }
       }
-      
+    
       const data = posts.filter(isSite);
       setPosts(data);
       
@@ -101,6 +173,7 @@ const ResturantsList = props => {
   if(!posts){
     return null;
   }
+  
   return (
     <React.Fragment>
       <CssBaseline />
@@ -112,15 +185,40 @@ const ResturantsList = props => {
           {posts.map((post) => (
               <Grid item key={post.id} xs={12} sm={6} md={4} className={classes.grid, classes.text}>
                 <Card className={classes.card}>
-                <CardMedia style={{ height: "250px", paddingTop: "10%" }}
-                    className={classes.media}
-                    image={post.resturant_image}
-                    title="Image title"
-                  />
+                  <ButtonBase
+                      focusRipple
+                      key={post.resturant_image}
+                      className={classes.image}
+                      focusVisibleClassName={classes.focusVisible}
+                      style={{
+                        height: "220px", paddingTop: "20%"
+                      }}
+                      >
+                      <span
+                        className={classes.imageSrc}
+                        style={{
+                          backgroundImage: `url(${post.resturant_image})`,
+                          backgroundSize : 'cover',
+                        }}
+                      />
+                      <span className={classes.imageBackdrop} />
+                      <span className={classes.imageButton}>
+                        <Typography
+                          component="span"
+                          variant="subtitle1"
+                          color="inherit"
+                          className={classes.imageTitle}
+                        >
+                          상세보기
+                          <span className={classes.imageMarked} />
+                        </Typography>
+                      </span>
+                    </ButtonBase>
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h8" component="h2">
                       {post.resturant_name}
                     </Typography>
+                    
                     <Typography className={classes.text}>
                       <li>대표메뉴 : {post.title_menu}</li><li>전화번호 : {post.resturant_tel}</li>
                     </Typography>

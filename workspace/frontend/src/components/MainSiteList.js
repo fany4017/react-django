@@ -13,6 +13,8 @@ import NhlifeMap from './NhlifeMap';
 import NhitcenterMap from './NhitcenterMap';
 import NhitMap from './NhitMap';
 import NhpropertyMap from './NhpropertyMap';
+import NhcoreMap from './NhcoreMap';
+import NhbankMap from './NhbankMap';
 const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
 
     //#e0f2f1, #dcedc8
@@ -87,15 +89,57 @@ export default function MainSiteList() {
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                     >
+                    <Typography className={classes.textTitle}>NH통합IT센터
+                    <Typography className={classes.textDetail}>경기도 의왕시 포일동 617 NH통합IT센터 3F</Typography>
+                    </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <NhitcenterMap />
+                    </AccordionDetails><br/>
+                </Accordion>
+                <Accordion className={classes.background} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1bh-content"
+                    id="panel1bh-header"
+                    >
+                    <Typography className={classes.textTitle}>농업중앙회(본관)
+                    <Typography className={classes.textDetail}>서울 중구 새문안로 16 B2</Typography>
+                    </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <NhcoreMap />
+                    </AccordionDetails><br/>
+                </Accordion>
+                <Accordion className={classes.background} expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1bh-content"
+                    id="panel1bh-header"
+                    >
+                    <Typography className={classes.textTitle}>NH농협은행 본점(신관)
+                    <Typography className={classes.textDetail}>서울 중구 통일로 120 NH농협은행 신관 12F</Typography>
+                    </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <NhbankMap />
+                    </AccordionDetails><br/>
+                </Accordion>
+                <Accordion className={classes.background} expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1bh-content"
+                    id="panel1bh-header"
+                    >
                     <Typography className={classes.textTitle}>NH농협생명보험
-                    <Typography className={classes.textDetail}>서울 서대문구 통일로 87 NH농협생명 동관 20F</Typography>
+                    <Typography className={classes.textDetail}>서울 서대문구 통일로 87 NH농협생명 20F</Typography>
                     </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                         <NhlifeMap />
                     </AccordionDetails><br/>
                 </Accordion>
-                <Accordion className={classes.background} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+                <Accordion className={classes.background} expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
                     <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1bh-content"
@@ -109,21 +153,7 @@ export default function MainSiteList() {
                         <NhpropertyMap />
                     </AccordionDetails><br/>
                 </Accordion>
-                <Accordion className={classes.background} expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-                    <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1bh-content"
-                    id="panel1bh-header"
-                    >
-                    <Typography className={classes.textTitle}>NH통합IT센터
-                    <Typography className={classes.textDetail}>경기도 의왕시 포일동 617 NH통합IT센터 3F</Typography>
-                    </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <NhitcenterMap />
-                    </AccordionDetails><br/>
-                </Accordion>
-                <Accordion className={classes.background} expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+                <Accordion className={classes.background} expanded={expanded === 'panel6'} onChange={handleChange('panel6')}>
                     <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1bh-content"
@@ -136,7 +166,7 @@ export default function MainSiteList() {
                     <AccordionDetails>
                         <NhitMap />
                     </AccordionDetails><br/>
-                </Accordion>
+                </Accordion><br/><br/><br/><br/>
                 
             </main>
         </div>

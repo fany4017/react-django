@@ -104,7 +104,7 @@ export default function ScrollableTabsButtonForce() {
 
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  const [site, setSite] = React.useState('nhlife');
+  const [site, setSite] = React.useState('');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -117,6 +117,8 @@ export default function ScrollableTabsButtonForce() {
     mapscript();
   }, []);
 
+  var minDistance = '';
+  var minSite = '';
 
   const mapscript = () => {
     let mapContainer = document.getElementById('map'); // 지도를 표시할 div 
@@ -141,8 +143,7 @@ export default function ScrollableTabsButtonForce() {
         //var lon = "127.03514090411251"; // 경도
         //var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
         
-        var minDistance = '';
-        var minSite = '';
+       
 
         markerdata.forEach((el, index) => {
             
@@ -170,12 +171,12 @@ export default function ScrollableTabsButtonForce() {
                     minSite = sitename
                 }
             }
-    
+            
         });
-        
         setSite(minSite);
     });
-
+    
+    
     } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
     
         var locPosition = new kakao.maps.LatLng(33.450701, 126.570667);  
@@ -220,7 +221,7 @@ export default function ScrollableTabsButtonForce() {
         <Advertisement />
       </TabPanel>
       <TabPanel value={value} index={5}>
-        <Resturant />
+        <Resturant site={site}/>
       </TabPanel>
       <TabPanel value={value} index={6}>
         <Notice />

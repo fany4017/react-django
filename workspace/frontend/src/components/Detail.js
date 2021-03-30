@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'SongMyung-Regular',
     fontWeight: 'Bold',
     color: 'black',
-    fontSize:'12px',
+    fontSize:'10px',
     textAlign: 'center',
   },
 }));
@@ -37,10 +37,12 @@ const Detail = (props) => {
   const classes = useStyles();
   
   //const site = match.params.site; //main에서 전달된 url에서 site 부분만 가져옴
-  const [site, setSite] = React.useState('nhlife');
+  const [site, setSite] = React.useState('');
   useEffect(() => {
     if(props != ''){
       setSite(props.site);
+    }else{
+      setSite('nhitcenter');
     }
   }, [])
   

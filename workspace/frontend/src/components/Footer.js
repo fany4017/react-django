@@ -10,8 +10,8 @@ const useStyles = makeStyles((theme) => ({
   
   appBar: {
     top: 'auto',
-    bottom: 0,
-    backgroundColor:'#eeeeee'
+    bottom: -1,
+    backgroundColor:'white' //#eeeeee
   },
   grow: {
     flexGrow: 1,
@@ -24,6 +24,11 @@ const useStyles = makeStyles((theme) => ({
     color:'black',
     width: '100%',
     fontSize:'10px'
+  },
+  addBanner :{
+    width: '320px',
+    margin: '0 auto',
+    marginTop : '5px',
   }
 }));
 
@@ -36,7 +41,7 @@ export default function Footer() {
       <CssBaseline />
       <AppBar position="fixed" color="primary" className={classes.appBar}>
         <Toolbar>
-          {/* <div>
+          <div className={classes.addBanner}>
               <ins
               class="kakao_ad_area"
               style={{display:"none"}}
@@ -49,8 +54,8 @@ export default function Footer() {
               src="//t1.daumcdn.net/kas/static/ba.min.js"
               async
           ></ScriptTag>
-          </div> */}
-          <Typography className={classes.text}>Copyright 2021. Nice Helper. <br/>All rights reserved.</Typography><br/>
+          </div>
+          {/* <Typography className={classes.text}>Copyright 2021. Nice Helper. <br/>All rights reserved.</Typography><br/> */}
         </Toolbar>
       </AppBar>
     </React.Fragment>

@@ -8,6 +8,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import { makeStyles } from '@material-ui/core/styles';
+import Test2 from './Test2';
 
 const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
 
@@ -44,7 +45,7 @@ export default function Guide() {
   return (
     <div className={classes.card, classes.text}>
       <Button className={classes.text} variant="outlined" color="secondary" onClick={handleClickOpen}>
-        농협인의 밥상 가이드
+        상세보기
       </Button>
       <Dialog
         open={open}
@@ -57,8 +58,7 @@ export default function Guide() {
         <DialogTitle id="alert-dialog-slide-title">{"Use Google's location service?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Let Google help apps determine location. This means sending anonymous location data to
-            Google, even when no apps are running.
+            <Test2/>
           </DialogContentText>
         </DialogContent>
         <DialogActions>

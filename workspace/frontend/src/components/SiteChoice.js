@@ -36,9 +36,11 @@ const SiteChoice = (props) => {
           className={classes.selectEmpty, classes.text}
           inputProps={{ 'aria-label': 'Without label' }}
         >
+          <MenuItem value={'nhitcenter'} className={classes.text}>NH통합IT센터</MenuItem>
+          <MenuItem value={'nhcore'} className={classes.text}>농협중앙회(본관)</MenuItem>
+          <MenuItem value={'nhbank'} className={classes.text}>NH농협은행(신관)</MenuItem>
           <MenuItem value={'nhlife'} className={classes.text}>NH농협생명보험</MenuItem>
           <MenuItem value={'nhproperty'} className={classes.text}>NH농협손해보험</MenuItem>
-          <MenuItem value={'nhitcenter'} className={classes.text}>NH통합IT센터</MenuItem>
           <MenuItem value={'nhit'} className={classes.text}>농협정보시스템</MenuItem>
         </Select>
       </FormControl>
