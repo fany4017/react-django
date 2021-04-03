@@ -8,10 +8,10 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
         borderBottom: "1.5px solid rgb(212, 212, 212)",
         paddingBottom: '10px',
     },
-    titleTtext :{
+    titleText :{
         fontWeight: 'Bold',
         color: '#f44336',
-        //textDecoration : 'underline',
+        textDecoration : 'underline',
     },
     text :{ 
         //NanumGothic-Bold SongMyung-Regular
@@ -77,7 +77,7 @@ const Lunch = (props) => {
                 if(lunch1Arr.length >= 0 || lunch1Arr[0] != ''){
                     for(let i=0;i<lunch1Arr.length;i++){
                         if(i==0){
-                            lunch1_element.push(<li><span className={classes.titleTtext}>{lunch1Arr[i]}⭐</span></li> )
+                            lunch1_element.push(<li><span className={classes.titleText}>{lunch1Arr[i]}</span><span>⭐</span></li> )
                         }else{
                             lunch1_element.push(<li>{lunch1Arr[i]}</li> )
                         }
@@ -89,7 +89,7 @@ const Lunch = (props) => {
                 if(lunch2Arr.length >= 0 && lunch2Arr[0] != ''){
                     for(let i=0;i<lunch2Arr.length;i++){
                         if(i==0){
-                            lunch2_element.push(<li><span className={classes.titleTtext}>{lunch2Arr[i]}⭐</span></li> )
+                            lunch2_element.push(<li><span className={classes.titleText}>{lunch2Arr[i]}</span><span>⭐</span></li> )
                         }else{
                             lunch2_element.push(<li>{lunch2Arr[i]}</li> )
                         }
@@ -100,7 +100,7 @@ const Lunch = (props) => {
                 if(lunch3Arr.length >= 0 && lunch3Arr[0] != ''){
                     for(let i=0;i<lunch3Arr.length;i++){
                         if(i==0){
-                            lunch3_element.push(<li><span className={classes.titleTtext}>{lunch3Arr[i]}⭐</span></li> )
+                            lunch3_element.push(<li><span className={classes.titleText}>{lunch3Arr[i]}</span><span>⭐</span></li> )
                         }else{
                             lunch3_element.push(<li>{lunch3Arr[i]}</li> )
                         }
@@ -111,7 +111,7 @@ const Lunch = (props) => {
                 if(lunch4Arr.length >= 0 && lunch4Arr[0] != ''){
                     for(let i=0;i<lunch4Arr.length;i++){
                         if(i==0){
-                            lunch4_element.push(<li><span className={classes.titleTtext}>{lunch4Arr[i]}⭐</span></li> )
+                            lunch4_element.push(<li><span className={classes.titleText}>{lunch4Arr[i]}</span><span>⭐</span></li> )
                         }else{
                             lunch4_element.push(<li>{lunch4Arr[i]}</li> )
                         }

@@ -1,6 +1,9 @@
 /* 사용 소스 */
 /*global kakao */
 import React, {useEffect} from 'react';
+import ReactGA from "react-ga";  // react ga
+import { createBrowserHistory } from 'history';
+
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -15,10 +18,12 @@ import Box from '@material-ui/core/Box';
 import Notice from './Notice';
 import Resturant from './Resturant';
 import Detail from './Detail';
+import PrivacyPolicy from './PrivacyPolicy';
 import Badge from '@material-ui/core/Badge';
 import MainSiteList from './MainSiteList';
 import Advertisement from './Advertisement';
 import LiveTvIcon from '@material-ui/icons/LiveTv';
+import ReportIcon from '@material-ui/icons/Report';
 
 const markerdata = [
   {
@@ -41,6 +46,16 @@ const markerdata = [
     lat: 37.46421591496631,
     lng: 127.0360252486866,
   },
+  {
+    site: "nhbank",
+    lat: 37.56580256809762,
+    lng: 126.96747152409849,
+  },
+  {
+    site: "nhcore",
+    lat: 37.566682877757664,
+    lng: 126.96842527400186,
+  }
 ];
 
 function TabPanel(props) {
@@ -78,6 +93,13 @@ function a11yProps(index) {
 }
 
 const useStyles = makeStyles((theme) => ({
+
+  progressBar: {
+    display: 'flex',
+    '& > * + *': {
+      marginLeft: theme.spacing(2),
+    },
+  },
   root: {
     flexGrow: 1,
     width: '100%',
@@ -126,7 +148,6 @@ export default function ScrollableTabsButtonForce() {
 
     if (navigator.geolocation) {
         
-        
         // GeoLocation을 이용해서 접속 위치를 얻어옵니다
         navigator.geolocation.getCurrentPosition(function(position) {
         
@@ -138,13 +159,12 @@ export default function ScrollableTabsButtonForce() {
         //농협손해 근무자 : "37.563849111455426", "126.9657232531785"
         //의왕 근무자 : "37.39759781091387", "126.98621432406449"
         //양재 근무자 : "37.46420932844801", "127.03514090411251"
+        //중앙회 근무자 : "37.566640336804305", "126.96838577331107"
 
-        //var lat = "37.46420932844801"; // 위도
+        //var lat = "37.566640336804305"; // 위도
         //var lon = "127.03514090411251"; // 경도
         //var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-        
-       
-
+    
         markerdata.forEach((el, index) => {
             
             var sitename = el.site;
@@ -171,7 +191,6 @@ export default function ScrollableTabsButtonForce() {
                     minSite = sitename
                 }
             }
-            
         });
         setSite(minSite);
     });
@@ -185,7 +204,7 @@ export default function ScrollableTabsButtonForce() {
     }
   };
   return (
-    <div className={classes.root}>
+    <div className={classes.root} style={{position: 'relative'}}>
       <AppBar position="static" color="default">
         <Tabs
           value={value}
@@ -203,6 +222,7 @@ export default function ScrollableTabsButtonForce() {
           <Badge className={classes.badge} badgeContent={message2} color="primary"></Badge>
           <Tab label="주변맛집" className={classes.text} icon={<LocalDiningRoundedIcon />} {...a11yProps(3)} />
           <Tab label="공지사항" className={classes.text} icon={<NotificationsActiveRoundedIcon />} {...a11yProps(4)} />
+          <Tab label="개인정보처리방침" className={classes.text} icon={<ReportIcon />} {...a11yProps(5)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
@@ -226,6 +246,11 @@ export default function ScrollableTabsButtonForce() {
       <TabPanel value={value} index={6}>
         <Notice />
       </TabPanel>
+      <TabPanel value={value} index={7}>
+        <PrivacyPolicy />
+      </TabPanel>
+      
     </div>
+    
   );
 }

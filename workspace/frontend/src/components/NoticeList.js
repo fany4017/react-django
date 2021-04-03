@@ -39,6 +39,19 @@ const useStyles = makeStyles((theme) => ({
         fontSize:'10px',
         textAlign: 'left',
     },
+    textSub :{ 
+        fontFamily: 'SongMyung-Regular',
+        fontWeight: 'Bold',
+        color: 'black',
+        fontSize:'14px',
+        textAlign: 'center',
+    },
+    paper: {
+        marginTop: '-10px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
 }));
 
 const Notice = () => {
@@ -89,7 +102,7 @@ const Notice = () => {
     }
   return (
     <React.Fragment>
-      <main>
+      <main className={classes.paper}><br/>
         {/* Hero unit */}
         <div className={classes.root}>
             {posts.map((post) => (

@@ -1,49 +1,25 @@
-import React from "react";
-import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer } from
-"mdbreact";
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import { Carousel } from "react-responsive-carousel";
+import styles from "react-responsive-carousel/lib/styles/carousel.min.css";
+import { makeStyles } from '@material-ui/core/styles';
+const useStyles = makeStyles((theme) => ({
 
-const Test = () => {
+  
+}));
+
+const Test = (props) => {
+
+  const imgSrc = props.imgsrc;
+  alert(imgSrc);
   return (
-    <MDBContainer>
-      <MDBCarousel
-        activeItem={1}
-        length={3}
-        showControls={true}
-        showIndicators={true}
-        className="z-depth-1"
-      >
-        <MDBCarouselInner>
-          <MDBCarouselItem itemId="1">
-            <MDBView>
-              <img
-                className="d-block w-100"
-                src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg"
-                alt="First slide"
-              />
-            </MDBView>
-          </MDBCarouselItem>
-          <MDBCarouselItem itemId="2">
-            <MDBView>
-              <img
-                className="d-block w-100"
-                src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg"
-                alt="Second slide"
-              />
-            </MDBView>
-          </MDBCarouselItem>
-          <MDBCarouselItem itemId="3">
-            <MDBView>
-              <img
-                className="d-block w-100"
-                src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
-                alt="Third slide"
-              />
-            </MDBView>
-          </MDBCarouselItem>
-        </MDBCarouselInner>
-      </MDBCarousel>
-    </MDBContainer>
-  );
+    <div>
+      <Carousel showThumbs={false} infiniteLoop={true} showIndicators={false} interval="2">
+        <div style={{ height: "294px", color: "white" }}><img src={imgSrc}></img></div>
+        <div style={{ height: "294px", color: "white" }}><img src={imgSrc}></img></div>
+        <div style={{ height: "294px", color: "white" }}><img src={imgSrc}></img></div>
+      </Carousel>
+    </div>
+  )
 }
-
-export default Test;
+export default Test

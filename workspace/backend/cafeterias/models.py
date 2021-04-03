@@ -18,6 +18,7 @@ class Site(models.Model):  # 지점 model
 
 class Menu(models.Model):  # 구내식당 메뉴 모델
     # 지점코드 Site 모델을 외래키로 가진다
+    id = models.AutoField(primary_key=True)
     site = models.ForeignKey(Site, on_delete=models.CASCADE)
     s_date = models.DateField('standard_date')  # 식단 일자
     breakfast_type_1 = models.CharField(max_length=200, blank=True)

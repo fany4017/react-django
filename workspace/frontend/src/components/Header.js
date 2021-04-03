@@ -6,10 +6,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import EcoIcon from '@material-ui/icons/Eco';
 import lightBlue from '@material-ui/core/colors/purple';
 import Typography from '@material-ui/core/Typography';
-import Guide from './Guide'
 const useStyles = makeStyles((theme) => ({
-  toolbar: {
 
+  toolbar: {
     //#69f0ae, #4caf50
     //borderBottom: `1px solid ${theme.palette.divider}`,
     //backgroundColor:'#64dd17',#69f0ae
@@ -17,10 +16,10 @@ const useStyles = makeStyles((theme) => ({
   },
   text :{ 
     //fontFamily: 'Nanum Pen Script',Dokdo-Regular, SongMyung-Regular
-    fontFamily: 'Nanum Pen Script',
+    fontFamily: 'Dokdo-Regular',
     //fontWeight: 'Bold',
     color: 'white',
-    fontSize:'20px'
+    fontSize:'26px'
   },
   palette: {
     primary: lightBlue,
@@ -34,7 +33,7 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
-        <EcoIcon className={classes.text}></EcoIcon><Typography className={classes.text}>농협인의 밥상</Typography>
+        <EcoIcon className={classes.text}></EcoIcon><Typography className={classes.text}>농밥</Typography>
       </Toolbar>
     </React.Fragment>
   );

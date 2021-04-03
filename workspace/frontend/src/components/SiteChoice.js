@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text :{
     //NanumGothic-Bold
-    fontFamily: 'SongMyung-Regular',
+    fontFamily: 'NanumGothic-Bold',
     fontWeight: 'Bold',
     color: 'black',
     fontSize:'15px',
@@ -25,17 +25,19 @@ const useStyles = makeStyles((theme) => ({
 const SiteChoice = (props) => {
 
   const classes = useStyles();
-
+  const site = props.site;
+  
   return (
     <div>
       <FormControl className={classes.formControl}>
         <Select
           //value={'none'}
-          onChange={e => props.setSite(e)} value={props.site}
+          onChange={e => props.setSite(e)} value={site}
           displayEmpty
           className={classes.selectEmpty, classes.text}
           inputProps={{ 'aria-label': 'Without label' }}
         >
+          <MenuItem value={'none'} className={classes.text}>사이트를 선택해주세요</MenuItem>
           <MenuItem value={'nhitcenter'} className={classes.text}>NH통합IT센터</MenuItem>
           <MenuItem value={'nhcore'} className={classes.text}>농협중앙회(본관)</MenuItem>
           <MenuItem value={'nhbank'} className={classes.text}>NH농협은행(신관)</MenuItem>

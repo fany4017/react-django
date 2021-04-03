@@ -5,6 +5,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import 'fontsource-roboto';
 import Card from '@material-ui/core/Card';
 import ScriptTag from 'react-script-tag'
+import ReactGA from "react-ga"; 
+ReactGA.initialize("G-G66YHQ750Q");
+ReactGA.pageview("AdvertisementList");
+
 const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
 
     root: {

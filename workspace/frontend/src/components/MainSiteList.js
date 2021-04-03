@@ -1,5 +1,5 @@
 /* 사용 소스 */
-import React from 'react';
+import React,{useEffect} from 'react';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import 'fontsource-roboto';
@@ -15,6 +15,10 @@ import NhitMap from './NhitMap';
 import NhpropertyMap from './NhpropertyMap';
 import NhcoreMap from './NhcoreMap';
 import NhbankMap from './NhbankMap';
+
+import ReactGA from "react-ga"; 
+ReactGA.initialize("G-G66YHQ750Q");
+ReactGA.pageview("MainSiteList");
 const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
 
     //#e0f2f1, #dcedc8

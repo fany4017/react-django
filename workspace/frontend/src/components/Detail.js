@@ -11,6 +11,9 @@ import {MuiPickersUtilsProvider,KeyboardDatePicker,} from '@material-ui/pickers'
 import Contents from './Contents';
 import SiteChoice from './SiteChoice';
 import Typography from '@material-ui/core/Typography';
+import ReactGA from "react-ga"; 
+ReactGA.initialize("G-G66YHQ750Q");
+ReactGA.pageview("Detail");
 
 const useStyles = makeStyles((theme) => ({
 
@@ -27,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'SongMyung-Regular',
     fontWeight: 'Bold',
     color: 'black',
-    fontSize:'10px',
+    fontSize:'9px',
     textAlign: 'center',
   },
 }));
@@ -37,12 +40,13 @@ const Detail = (props) => {
   const classes = useStyles();
   
   //const site = match.params.site; //main에서 전달된 url에서 site 부분만 가져옴
-  const [site, setSite] = React.useState('');
+  const [site, setSite] = React.useState('none');
+
   useEffect(() => {
-    if(props != ''){
+    if(props.site != ''){
       setSite(props.site);
     }else{
-      setSite('nhitcenter');
+      setSite('none');
     }
   }, [])
   
@@ -51,7 +55,8 @@ const Detail = (props) => {
   const handleSetSite = e => {
     setSite(e.target.value);
   };
-
+  const minDate = new Date(new Date().getTime() + 86400000);
+  
   //오늘 날짜 YYYY-MM-DD 로 만드는 과정 (캘린더에 오늘날짜를 기본으로 적용하기 위함)
   const date = new Date();   
   const year = date.getFullYear();
@@ -80,7 +85,7 @@ const Detail = (props) => {
         {/* Hero unit */}
         <Container className={classes.cardGrid} maxWidth="md">
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <Typography className={classes.text}>접속 위치 기준으로 가장 가까운 사이트가 자동 설정됩니다</Typography>
+          <Typography className={classes.text}>접속 위치 기준으로 가장 가까운 건물이 자동설정됩니다(일부 단말 제외)</Typography>
           <Grid container justify="space-around">
             <SiteChoice setSite={handleSetSite} site={site} />
             {/* <DetailChoice /> */}
@@ -96,6 +101,7 @@ const Detail = (props) => {
               KeyboardButtonProps={{
                 'aria-label': 'change date',
               }}
+              InputProps={{ readOnly: true }}
             />
           </Grid>
           <Grid container justify="space-around">

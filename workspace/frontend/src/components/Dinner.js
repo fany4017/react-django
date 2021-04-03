@@ -8,10 +8,10 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
         borderBottom: "1.5px solid rgb(212, 212, 212)",
         paddingBottom: '10px',
     },
-    titleTtext :{
+    titleText :{
         fontWeight: 'Bold',
         color: '#f44336',
-        //textDecoration : 'underline',
+        textDecoration : 'underline',
     },
     text :{ 
         //NanumGothic-Bold SongMyung-Regular
@@ -75,7 +75,7 @@ const Dinner = (props) => {
                 if(dinner1Arr.length >= 0 || dinner1Arr[0] != ''){
                     for(let i=0;i<dinner1Arr.length;i++){
                         if(i==0){
-                            dinner1_element.push(<li><span className={classes.titleTtext}>{dinner1Arr[i]}⭐</span></li>)
+                            dinner1_element.push(<li><span className={classes.titleText}>{dinner1Arr[i]}</span><span>⭐</span></li>)
                         }else{
                             dinner1_element.push(<li>{dinner1Arr[i]}</li>)
                         }
@@ -86,7 +86,7 @@ const Dinner = (props) => {
                 if(dinner2Arr.length > 0 && dinner2Arr[0] != ''){
                     for(let i=0;i<dinner2Arr.length;i++){
                         if(i==0){
-                            dinner2_element.push(<li><span className={classes.titleTtext}>{dinner2Arr[i]}⭐</span></li>)
+                            dinner2_element.push(<li><span className={classes.titleText}>{dinner2Arr[i]}</span><span>⭐</span></li>)
                         }else{
                             dinner2_element.push(<li>{dinner2Arr[i]}</li>)
                         }
@@ -97,7 +97,7 @@ const Dinner = (props) => {
                 if(dinner3Arr.length > 0 && dinner3Arr[0] != ''){
                     for(let i=0;i<dinner3Arr.length;i++){
                         if(i===0){
-                            dinner3_element.push(<li><span className={classes.titleTtext}>{dinner3Arr[i]}⭐</span></li>)
+                            dinner3_element.push(<li><span className={classes.titleText}>{dinner3Arr[i]}</span><span>⭐</span></li>)
                         }else{
                             dinner3_element.push(<li>{dinner3Arr[i]}</li>)
                         }

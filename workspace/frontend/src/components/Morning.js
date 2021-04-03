@@ -1,17 +1,16 @@
 /* 사용 소스 */
 import React,{useState, useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-
 const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
 
     li: {
         borderBottom: "1.5px solid rgb(212, 212, 212)",
         paddingBottom: '10px',
     },
-    titleTtext :{
+    titleText :{
         fontWeight: 'Bold',
         color: '#f44336',
-        //textDecoration : 'underline',
+        textDecoration : 'underline',
     },
     text :{
         //NanumGothic-Bold SongMyung-Regular
@@ -19,8 +18,16 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
         fontSize:'15px',
         fontWeight: 'Bold',
     },
+    badge: {
+    '& > *': {
+      margin: theme.spacing(2),
+    },
+  },
 }));
 
+const defaultProps = {
+    color: 'secondary',
+};
 
 const Morning = (props) => {
 
@@ -33,7 +40,6 @@ const Morning = (props) => {
     const date =  year + "-" + month + "-" + day;
     const site = props.site; //부모컴포넌트(Contents.js) 에서 전달해준 props site 값
     //alert('site:'+site);
-    const message = 'title';
     //const[post, setPosts] = useState('');
     //아래의 breakfast1, breakfast2 변수에 다가 api 로 호출한 결과를 담아서 화면에 맵핑할 것임
     //왜 1,2 두개냐면.. 구내식당에서 아침메뉴는 크게 두개니까
@@ -45,7 +51,9 @@ const Morning = (props) => {
     const[loading, setLoading] = useState(false); // api 호출했을때 속도가 늦어질 것을 대비해서 loading 변수를 만듬
     const[posts, setPosts] = useState('');
 
-    const message1 = 'click';
+    //const message1 = 'click';
+
+    const message = "대표";
 
     useEffect( () => { // 이건 컴포넌트가 로딩되면 자동으로 실행되는 함수인데
         //로딩되면 fetchInitialData() 를 사용해서 api 통신을 하여 조식 메뉴를 가져올것임
@@ -118,7 +126,7 @@ const Morning = (props) => {
                     for(let i=0;i<breakfast1Arr.length;i++){ //breakfast1Arr를 돌면서 데이터를 뽑는다.
                         if(i==0){ // 각 첫번째 값인 대표메뉴 뒤에는 이모티콘 적용
                             // breakfast1_element 배열에 push
-                            breakfast1_element.push(<li><span className={classes.titleTtext}>{breakfast1Arr[i]}⭐</span></li>)
+                            breakfast1_element.push(<li><span className={classes.titleText}>{breakfast1Arr[i]}</span><span>⭐</span></li>)
                         }else{
                             breakfast1_element.push(<li>{breakfast1Arr[i]}</li>)
                         }
@@ -133,7 +141,7 @@ const Morning = (props) => {
                 if(breakfast2Arr.length >= 0 && breakfast2Arr[0] != ''){
                     for(let i=0;i<breakfast2Arr.length;i++){
                         if(i==0){
-                            breakfast2_element.push(<li><span className={classes.titleTtext}>{breakfast2Arr[i]}⭐</span></li>)
+                            breakfast2_element.push(<li><span className={classes.titleText}>{breakfast2Arr[i]}</span><span>⭐</span></li>)
                         }else{
                             breakfast2_element.push(<li>{breakfast2Arr[i]}</li>)
                         }
@@ -145,7 +153,7 @@ const Morning = (props) => {
                 if(breakfast3Arr.length >= 0 && breakfast3Arr[0] != ''){
                     for(let i=0;i<breakfast3Arr.length;i++){
                         if(i==0){
-                            breakfast3_element.push(<li><span className={classes.titleTtext}>{breakfast3Arr[i]}⭐</span></li>)
+                            breakfast3_element.push(<li><span className={classes.titleText}>{breakfast3Arr[i]}</span><span>⭐</span></li>)
                         }else{
                             breakfast3_element.push(<li>{breakfast3Arr[i]}</li>)
                         }

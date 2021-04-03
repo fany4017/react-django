@@ -33,13 +33,15 @@ const Resturant = (props) => {
 
   const classes = useStyles();
   //앞단에서 위치정보가져와서 가장 가까운 지점으로 초기 셋팅
-  const [site, setSite] = React.useState(props.site);
+  const [site, setSite] = React.useState('none');
+
   useEffect(() => {
-    if(props != ''){
+    if(props.site != ''){
       setSite(props.site);
+    }else{
+      setSite('none');
     }
   }, [])
-  
   
   const handleSetSite = e => {
     setSite(e.target.value);

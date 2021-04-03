@@ -1,5 +1,5 @@
 /* 사용 소스 */
-import React from 'react'
+import React,{useEffect} from 'react'
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -11,6 +11,9 @@ import Box from '@material-ui/core/Box';
 import Morning from './Morning';
 import Lunch from './Lunch';
 import Dinner from './Dinner';
+import ReactGA from "react-ga"; 
+ReactGA.initialize("G-G66YHQ750Q");
+ReactGA.pageview("Contents");
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -67,12 +70,29 @@ const Contents = props =>  { //부모 컴포넌트로부터 전달받은 props�
   const theme = useTheme();
   const [value, setValue] = React.useState(0); // value 의 초기값을 0 으로 지정
 
+  const now = new Date();   
+  const hours = now.getHours();
+  const [tabValue, setTabvalue] = React.useState('');
+
+  
+  useEffect(() => {
+    if((hours >= 0 && hours <= 9) || (hours >= 20 && hours <= 23)){
+      setTabvalue(0);
+    }else if(hours >= 10 && hours <= 12){
+      setTabvalue(1);
+    }else if(hours >= 13 && hours <= 19){
+      setTabvalue(2);
+    }
+  }, [])
+  
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    setTabvalue(newValue);
   };
 
-  const handleChangeIndex = (index) => {
+  const handleChangeIndex = (index, newValue) => {
     setValue(index);
+    setTabvalue(newValue);
   };
 
   return (
@@ -81,7 +101,7 @@ const Contents = props =>  { //부모 컴포넌트로부터 전달받은 props�
       SwipeableViews 이건 따로 npm install --save react-swipeable-views 으로 설치해야 쓸수 있는 컴포넌트  */}
       <AppBar position="static" color="default">
         <Tabs
-          value={value}
+          value={tabValue}
           onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
@@ -95,18 +115,18 @@ const Contents = props =>  { //부모 컴포넌트로부터 전달받은 props�
       </AppBar>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
+        index={tabValue}
         onChangeIndex={handleChangeIndex}
       >
-        <TabPanel value={value} index={0} dir={theme.direction}>
+        <TabPanel value={0} index={0} dir={theme.direction}>
           {/* 날짜 & site를 자식 컴포넌트로 전달 
           Morning.js 로 가보자*/}
           <Morning date={props.date} site={props.site}/>
         </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
+        <TabPanel value={1} index={1} dir={theme.direction}>
           <Lunch date={props.date} site={props.site}/>
         </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
+        <TabPanel value={2} index={2} dir={theme.direction}>
           <Dinner date={props.date} site={props.site}/>
         </TabPanel>
       </SwipeableViews>
