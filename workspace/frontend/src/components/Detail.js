@@ -12,7 +12,7 @@ import Contents from './Contents';
 import SiteChoice from './SiteChoice';
 import Typography from '@material-ui/core/Typography';
 import ReactGA from "react-ga"; 
-ReactGA.initialize("G-G66YHQ750Q");
+ReactGA.initialize("UA-73002501-5");
 ReactGA.pageview("Detail");
 
 const useStyles = makeStyles((theme) => ({
@@ -27,10 +27,10 @@ const useStyles = makeStyles((theme) => ({
   },
   text :{ 
     //Nanum Pen Script
-    fontFamily: 'SongMyung-Regular',
+    fontFamily: 'NanumGothic-Bold',
     fontWeight: 'Bold',
     color: 'black',
-    fontSize:'9px',
+    fontSize:'10px',
     textAlign: 'center',
   },
 }));
@@ -85,7 +85,7 @@ const Detail = (props) => {
         {/* Hero unit */}
         <Container className={classes.cardGrid} maxWidth="md">
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <Typography className={classes.text}>접속 위치 기준으로 가장 가까운 건물이 자동설정됩니다(일부 단말 제외)</Typography>
+          <Typography className={classes.text}>접속 위치 기준으로 가장 가까운 건물이 자동설정됩니다<br/>(일부 단말 제외)</Typography>
           <Grid container justify="space-around">
             <SiteChoice setSite={handleSetSite} site={site} />
             {/* <DetailChoice /> */}

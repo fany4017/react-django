@@ -11,8 +11,8 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     //#69f0ae, #4caf50
     //borderBottom: `1px solid ${theme.palette.divider}`,
-    //backgroundColor:'#64dd17',#69f0ae
-    backgroundColor:'#64dd17',
+    //backgroundColor:'#64dd17',#69f0ae, #00c853
+    backgroundColor:'#00c853',
   },
   text :{ 
     //fontFamily: 'Nanum Pen Script',Dokdo-Regular, SongMyung-Regular
@@ -33,7 +33,7 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
-        <EcoIcon className={classes.text}></EcoIcon><Typography className={classes.text}>농밥</Typography>
+        <EcoIcon className={classes.text}></EcoIcon><Typography className={classes.text}>농협인의밥상</Typography>
       </Toolbar>
     </React.Fragment>
   );

@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AdvertisementList from './AdvertisementList';
 import ReactGA from "react-ga"; 
-ReactGA.initialize("G-G66YHQ750Q");
+ReactGA.initialize("UA-73002501-5");
 ReactGA.pageview("Advertisement");
 const Advertisement = () => {
 

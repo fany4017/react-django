@@ -6,7 +6,7 @@ import 'fontsource-roboto';
 import Card from '@material-ui/core/Card';
 import ScriptTag from 'react-script-tag'
 import ReactGA from "react-ga"; 
-ReactGA.initialize("G-G66YHQ750Q");
+ReactGA.initialize("UA-73002501-5");
 ReactGA.pageview("AdvertisementList");
 
 const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
@@ -22,14 +22,14 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
     },
     text :{ 
         //Nanum Pen Script
-        fontFamily: 'SongMyung-Regular',
+        fontFamily: 'NanumGothic-Bold',
         fontWeight: 'Bold',
         color: 'black',
         fontSize:'20px',
         textAlign: 'center',
     },
     textSub :{ 
-        fontFamily: 'SongMyung-Regular',
+        fontFamily: 'NanumGothic-Bold',
         fontWeight: 'Bold',
         color: 'black',
         fontSize:'10px',

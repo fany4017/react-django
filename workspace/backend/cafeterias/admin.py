@@ -4,7 +4,6 @@ from .models import UserInfo, Site, Menu, ResturantInfo, AppCode, Notice, Advert
 admin.site.register(UserInfo)  # 관리할 모델을 등록
 admin.site.register(AppCode)
 admin.site.register(Notice)
-admin.site.register(Advertisement)
 
 
 class SiteAdmin(admin.ModelAdmin):
@@ -21,6 +20,12 @@ class ResturantInfoAdmin(admin.ModelAdmin):
     list_filter = ['site_code']
 
 
+class AdvertisementAdmin(admin.ModelAdmin):
+    list_display = ('item_name', 'useyn', 'enroll_date')
+    list_filter = ['useyn']
+
+
 admin.site.register(Site, SiteAdmin)
 admin.site.register(Menu, MenuAdmin)
 admin.site.register(ResturantInfo, ResturantInfoAdmin)
+admin.site.register(Advertisement, AdvertisementAdmin)

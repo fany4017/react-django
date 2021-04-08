@@ -12,7 +12,7 @@ import Morning from './Morning';
 import Lunch from './Lunch';
 import Dinner from './Dinner';
 import ReactGA from "react-ga"; 
-ReactGA.initialize("G-G66YHQ750Q");
+ReactGA.initialize("UA-73002501-5");
 ReactGA.pageview("Contents");
 
 function TabPanel(props) {
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
   text :{ 
 
     //NanumGothic-Bold
-    fontFamily: 'SongMyung-Regular',
+    fontFamily: 'NanumGothic-Bold',
     fontWeight: 'Bold',
     color: 'black',
     fontSize:'18px',

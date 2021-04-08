@@ -29,13 +29,13 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   media: {
-    margin: "-10px auto 0",
+    margin: "-70px auto 0",
     width: "100%",
     height: 140,
-    //borderRadius: "4px",
-    //boxShadow: "0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)",
+    borderRadius: "4px",
+    boxShadow: "0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)",
     position: "relative",
-    //zIndex: 1000
+    zIndex: 1000
   },
   grid:{
     padding:'0px',
@@ -184,18 +184,34 @@ const ResturantsList = props => {
           {posts.map((post) => (
               <Grid item key={post.id} xs={12} sm={6} md={4} className={classes.grid, classes.text}>
                 <Card className={classes.card}>
-                      <CardMedia style={{ height: "250px", paddingTop: "20%" }}
-                        className={classes.media}
-                        image={post.resturant_image}
-                        title="Image title"
-                      />
-                      {/* <span
+                  <ButtonBase
+                      focusRipple
+                      key={post.resturant_image}
+                      className={classes.image}
+                      focusVisibleClassName={classes.focusVisible}
+                      style={{
+                        height: "220px", paddingTop: "20%"
+                      }}
+                    >
+                      <span
                         className={classes.imageSrc}
                         style={{
                           backgroundImage: `url(${post.resturant_image})`,
                         }}
-                      /> */}
-                      
+                      />
+                      <span className={classes.imageBackdrop} />
+                      <span className={classes.imageButton}>
+                        <Typography
+                          component="span"
+                          variant="subtitle1"
+                          color="inherit"
+                          className={classes.imageTitle}
+                        >
+                          상세보기
+                          <span className={classes.imageMarked} />
+                        </Typography>
+                      </span>
+                    </ButtonBase>
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h8" component="h2">
                       {post.resturant_name}

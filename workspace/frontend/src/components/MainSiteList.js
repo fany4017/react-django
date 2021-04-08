@@ -17,7 +17,7 @@ import NhcoreMap from './NhcoreMap';
 import NhbankMap from './NhbankMap';
 
 import ReactGA from "react-ga"; 
-ReactGA.initialize("G-G66YHQ750Q");
+ReactGA.initialize("UA-73002501-5");
 ReactGA.pageview("MainSiteList");
 const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
 
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
     },
     text :{ 
         //Nanum Pen Script
-        fontFamily: 'SongMyung-Regular',
+        fontFamily: 'NanumGothic-Bold',
         fontWeight: 'Bold',
         color: 'black',
         fontSize:'20px',
@@ -46,15 +46,14 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
     },
     textTitle :{ 
         //NanumGothic-Bold
-        fontFamily: 'SongMyung-Regular',
+        fontFamily: 'NanumGothic-Bold',
         fontWeight: 'Bold',
         color: 'black',
         fontSize:'16px',
         textAlign: 'left',
     },
     textSub :{ 
-        fontFamily: 'SongMyung-Regular',
-        fontWeight: 'Bold',
+        fontFamily: 'NanumGothic-Bold',
         color: 'black',
         fontSize:'14px',
         textAlign: 'left',
@@ -107,7 +106,7 @@ export default function MainSiteList() {
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                     >
-                    <Typography className={classes.textTitle}>농업중앙회(본관)
+                    <Typography className={classes.textTitle}>농협중앙회(본관)
                     <Typography className={classes.textDetail}>서울 중구 새문안로 16 B2</Typography>
                     </Typography>
                     </AccordionSummary>
@@ -139,6 +138,11 @@ export default function MainSiteList() {
                     <Typography className={classes.textDetail}>서울 서대문구 통일로 87 NH농협생명 20F</Typography>
                     </Typography>
                     </AccordionSummary>
+                    <Typography style={{paddingLeft:'16px', fontSize:'12px', fontWeight: 'Bold', fontFamily: 'NanumGothic-Bold'}}>
+                        [운영 시간 및 가격]<br/>
+                        조식 :  8:00 ~ 9:00 (3,700원)<br/>
+                        중식 :  11:30 ~ 13:00 (4,700원)<br/>
+                    </Typography><br/>
                     <AccordionDetails>
                         <NhlifeMap />
                     </AccordionDetails><br/>
@@ -153,6 +157,12 @@ export default function MainSiteList() {
                     <Typography className={classes.textDetail}>서울 서대문구 충정로 60 B1</Typography>
                     </Typography>
                     </AccordionSummary>
+                    <Typography style={{paddingLeft:'16px', fontSize:'12px', fontWeight: 'Bold', fontFamily: 'NanumGothic-Bold'}}>
+                        [운영 시간 및 가격]<br/>
+                        조식 :  07:30 ~ 08:30 (3,500원)<br/>
+                        중식 :  12:00 ~ 13:30 (5,500원)<br/>
+                        석식 :  17:30 ~ 18:30 (5,500원)·셀프라면(3,500원)
+                    </Typography><br/>
                     <AccordionDetails>
                         <NhpropertyMap />
                     </AccordionDetails><br/>
@@ -167,6 +177,10 @@ export default function MainSiteList() {
                     <Typography className={classes.textDetail}>서울특별시 서초구 양재2동 매헌로 24 B1</Typography>
                     </Typography>
                     </AccordionSummary>
+                    <Typography style={{paddingLeft:'16px', fontSize:'12px', fontWeight: 'Bold', fontFamily: 'NanumGothic-Bold'}}>
+                        [운영 시간 및 가격]<br/>
+                        중식 :  11:30 ~ 13:00 (5,500원)<br/>
+                    </Typography><br/>
                     <AccordionDetails>
                         <NhitMap />
                     </AccordionDetails><br/>

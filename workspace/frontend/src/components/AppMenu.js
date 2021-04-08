@@ -110,7 +110,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text :{ 
     //NanumGothic-Bold
-    fontFamily: 'SongMyung-Regular',
+    fontFamily: 'NanumGothic-Bold',
     fontWeight: 'Bold',
     color: 'black',
     fontSize:'12px',

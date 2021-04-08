@@ -83,6 +83,8 @@ class Advertisement(models.Model):
                             help_text="링크를 입력하세요")  # 링크
     useyn = models.CharField(max_length=1, blank=False,
                              default='y', help_text="사용여부를 입력하세요(기본값은 y입니다)")  # 내용
+    item_name = models.CharField(
+        max_length=50, blank=False, help_text="상품명을 입력하세요")  # 상품명
     enroll_date = models.DateTimeField('date enrolled')  # 등록일
 
     class Meta:

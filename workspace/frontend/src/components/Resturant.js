@@ -13,6 +13,9 @@ import {
 } from '@material-ui/pickers';
 import Typography from '@material-ui/core/Typography';
 import ResturantList from './ResturantList';
+import ReactGA from "react-ga"; 
+ReactGA.initialize("UA-73002501-5");
+ReactGA.pageview("ResturantList");
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -21,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text :{ 
     //Nanum Pen Script
-    fontFamily: 'SongMyung-Regular',
+    fontFamily: 'NanumGothic-Bold',
     fontWeight: 'Bold',
     color: 'black',
     fontSize:'16px',

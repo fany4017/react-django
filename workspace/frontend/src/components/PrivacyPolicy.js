@@ -28,14 +28,14 @@ const useStyles = makeStyles((theme) => ({
     },
     textTitle :{ 
         //NanumGothic-Bold
-        fontFamily: 'SongMyung-Regular',
+        fontFamily: 'NanumGothic-Bold',
         fontWeight: 'Bold',
         color: 'black',
-        fontSize:'12px',
+        fontSize:'11px',
         textAlign: 'left',
     },
     textDetail :{ 
-        fontFamily: 'SongMyung-Regular',
+        fontFamily: 'NanumGothic-Bold',
         fontWeight: 'Bold',
         color: 'black',
         fontSize:'10px',
@@ -110,7 +110,7 @@ const PrivacyPolicy = () => {
                         id="panel1bh-header"
                         >
                         <Typography className={classes.heading, classes.textTitle}>[관리자]</Typography>&nbsp;&nbsp;
-                        <Typography className={classes.secondaryHeading, classes.textTitle}>제2조(개인정보의 처리 및 보유 기간)</Typography>
+                        <Typography className={classes.secondaryHeading, classes.textTitle}>제2조(개인정보의 처리 및 보유기간)</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                         <Typography className={classes.textDetail}>
@@ -132,8 +132,10 @@ const PrivacyPolicy = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                         <Typography className={classes.textDetail}>
-                        ① 농밥은 기본적으로 소중한 이용자 개인정보를 제3자에게 제공하지 않습니다.<br/>
-                        ② 다만 개인정보를 제1조(개인정보의 처리 목적)에서 명시한 범위 내에서만 처리하며, 정보주체의 동의, 법률의 특별한 규정 등 「개인정보 보호법」 제17조 및 제18조에 해당하는 경우에만 개인정보를 제3자에게 제공합니다.<br/>
+                        ① 농밥은 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의받은 개인정보 보유·이용기간 내에서 개인정보를 처리·보유합니다.<br/>
+                        ② 각각의 개인정보 처리 및 보유 기간은 다음과 같습니다.<br/>
+                        - 위치 정보 : 앱 최초 실행 시 위치 허용 여부를 이용자에게 동의를 구하며 이용자가 원할 시 앱 설정에서 거부할 수 있습니다.<br/>
+                        - 이용자 접속 IP : 매월 1회 로그 삭제를 통해 관련 정보를 파기합니다.<br/>
                         </Typography>
                         </AccordionDetails><br/>
                     </Accordion>
@@ -175,7 +177,7 @@ const PrivacyPolicy = () => {
                         id="panel1bh-header"
                         >
                         <Typography className={classes.heading, classes.textTitle}>[관리자]</Typography>&nbsp;&nbsp;
-                        <Typography className={classes.secondaryHeading, classes.textTitle}>제6조(처리하는 개인정보의 항목 작성)</Typography>
+                        <Typography className={classes.secondaryHeading, classes.textTitle}>제6조(처리하는 개인정보의 항목작성)</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                         <Typography className={classes.textDetail}>
