@@ -110,6 +110,15 @@ export default function MainSiteList() {
                     <Typography className={classes.textDetail}>서울 중구 새문안로 16 B2</Typography>
                     </Typography>
                     </AccordionSummary>
+                    <Typography style={{paddingLeft:'16px', fontSize:'12px', fontWeight: 'Bold', fontFamily: 'NanumGothic-Bold'}}>
+                        [운영 시간 및 가격]<br/>
+                        조식 :  07:30 ~ 08:40 (4,000원)<br/>
+                        중식 :  11:30 ~ 13:20 (5,300원)·신토불이(6,500원)<br/><br/>
+                        [4월 층별 이용시간]<br/>
+                        본관 4·5층 / 별관 1·2·3층 : 11:30 ~ 12:30<br/>
+                        본관 6·7·8층 / 별관 4·5층 : 12:00 ~ 13:00<br/>
+                        본관 3·9·10층 / 별관 6·7층 : 12:20 ~ 13:20<br/>
+                    </Typography><br/>
                     <AccordionDetails>
                         <NhcoreMap />
                     </AccordionDetails><br/>
@@ -124,6 +133,15 @@ export default function MainSiteList() {
                     <Typography className={classes.textDetail}>서울 중구 통일로 120 NH농협은행 신관 12F</Typography>
                     </Typography>
                     </AccordionSummary>
+                    <Typography style={{paddingLeft:'16px', fontSize:'12px', fontWeight: 'Bold', fontFamily: 'NanumGothic-Bold'}}>
+                        [운영 시간 및 가격]<br/>
+                        조식 :  07:50 ~ 08:40 빵(4,000원)·라면(3,000원)<br/>
+                        중식 :  11:30 ~ 13:00 (5,300원)<br/><br/>
+                        [4월 층별 이용시간]<br/>
+                        A조(1F~8F) : 11:30 ~ 12:00<br/>
+                        B조(9F~13F) : 12:00 ~ 12:30<br/>
+                        C조(14F~20F) : 12:30 ~ 13:00<br/>
+                    </Typography><br/>
                     <AccordionDetails>
                         <NhbankMap />
                     </AccordionDetails><br/>
@@ -140,7 +158,7 @@ export default function MainSiteList() {
                     </AccordionSummary>
                     <Typography style={{paddingLeft:'16px', fontSize:'12px', fontWeight: 'Bold', fontFamily: 'NanumGothic-Bold'}}>
                         [운영 시간 및 가격]<br/>
-                        조식 :  8:00 ~ 9:00 (3,700원)<br/>
+                        조식 :  08:00 ~ 09:00 (3,700원)<br/>
                         중식 :  11:30 ~ 13:00 (4,700원)<br/>
                     </Typography><br/>
                     <AccordionDetails>

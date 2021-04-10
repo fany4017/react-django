@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Dokdo-Regular',
     //fontWeight: 'Bold',
     color: 'white',
-    fontSize:'26px'
+    fontSize:'24px'
   },
   palette: {
     primary: lightBlue,
@@ -33,7 +33,7 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
-        <EcoIcon className={classes.text}></EcoIcon><Typography className={classes.text}>농협인의밥상</Typography>
+        <EcoIcon className={classes.text}></EcoIcon><Typography className={classes.text}>농협인의 밥상</Typography>
       </Toolbar>
     </React.Fragment>
   );

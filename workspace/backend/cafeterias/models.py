@@ -59,7 +59,53 @@ class ResturantInfo(models.Model):  # 회사 주변 식당
         max_length=50, blank=False)  # 룸 여부 (있음, 4/8/12석)
     distance = models.CharField(max_length=10, blank=False)  # 사이트 기준 거리 (100M)
     resturant_desc = models.CharField(max_length=200, blank=True)
-    resturant_image = models.FileField(upload_to='resturant_image', blank=True)
+    resturant_image = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 대표 이미지1")  # 식당 대표 이미지
+
+    resturant_image_front1 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 전경 이미지1")  # 식당 전경 이미지 1
+    resturant_image_front2 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 전경 이미지2")  # 식당 전경 이미지 2
+    resturant_image_front3 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 전경 이미지3")  # 식당 전경 이미지 3
+
+    resturant_image_parking1 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 주차장 이미지1")  # 식당 주차장 이미지 1
+    resturant_image_parking2 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 주차장 이미지2")  # 식당 주차장 이미지 1
+
+    resturant_image_inside1 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 내부 이미지1")  # 식당 내부 이미지 1
+    resturant_image_inside2 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 내부 이미지2")  # 식당 내부 이미지 2
+    resturant_image_inside3 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 내부 이미지3")  # 식당 내부 이미지 3
+
+    resturant_image_menu1 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 메뉴판 이미지1")  # 식당 메뉴판 이미지 1
+    resturant_image_menu2 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 메뉴판 이미지2")  # 식당 메뉴판 이미지 2
+    resturant_image_menu3 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 메뉴판 이미지3")  # 식당 메뉴판 이미지 3
+
+    resturant_image_food1 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 음식 이미지1")  # 식당 메뉴 이미지 1
+    resturant_image_food2 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 음식 이미지2")  # 식당 메뉴 이미지 2
+    resturant_image_food3 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 음식 이미지3")  # 식당 메뉴 이미지 3
+    resturant_image_food4 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 음식 이미지4")  # 식당 메뉴 이미지 4
+    resturant_image_food5 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 음식 이미지5")  # 식당 메뉴 이미지 5
+
+    resturant_image_room1 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 룸 이미지1")  # 식당 룸 이미지 1
+    resturant_image_room2 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 룸 이미지2")  # 식당 룸 이미지 2
+    resturant_image_room3 = models.FileField(
+        upload_to='resturant_image', blank=True, help_text="식당 룸 이미지3")  # 식당 룸 이미지 3
+
     # 영업시간 (오전 11시~오후 8시)
     operating_time = models.CharField(max_length=50, blank=True)
     enroll_date = models.DateTimeField('date enrolled')  # 등록일
