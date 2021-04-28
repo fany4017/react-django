@@ -1,6 +1,6 @@
 from django.http import HttpResponse, JsonResponse
-from .models import Menu, ResturantInfo, Notice, Advertisement
-from .serializers import CafeteriasSerializer, ResturantSerializer, NoticeSerializer, AdvertisementSerializer
+from .models import Menu, ResturantInfo, Notice, Advertisement, MenuReview
+from .serializers import CafeteriasSerializer, ResturantSerializer, NoticeSerializer, AdvertisementSerializer, ReviewCreateSerializer
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import generics
@@ -42,3 +42,8 @@ class ListNotice(generics.ListCreateAPIView):
 class ListAdvertisement(generics.ListCreateAPIView):
     queryset = Advertisement.objects.all()
     serializer_class = AdvertisementSerializer
+
+
+class CreateReview(generics.ListCreateAPIView):
+    queryset = MenuReview.objects.all()
+    serializer_class = ReviewCreateSerializer

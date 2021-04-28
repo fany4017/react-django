@@ -5,6 +5,8 @@ import {Route, Switch} from 'react-router-dom'
 import Resturant from './components/Resturant';
 import Notice from './components/Notice';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import Test from './components/Test';
+import Test2 from './components/Test2';
 import ReactGA from "react-ga"; 
 ReactGA.initialize("UA-73002501-5");
 ReactGA.pageview("App");
@@ -21,6 +23,8 @@ function App() { //앱의 기본 js , 리액트 앱은 App.js 컴포넌트를 �
         <Route path="/resturant" component={Resturant} />
         <Route path="/notice" component={Notice} />
         <Route path="/privacy" component={PrivacyPolicy} />
+        <Route path="/test" component={Test} />
+        <Route path="/test2" component={Test2} />
       </Switch>
     </div>
   );

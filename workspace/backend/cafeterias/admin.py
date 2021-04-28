@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserInfo, Site, Menu, ResturantInfo, AppCode, Notice, Advertisement  # 모델 임포트
+from .models import UserInfo, Site, Menu, ResturantInfo, AppCode, Notice, Advertisement, MenuReview  # 모델 임포트
 # Register your models here.
 admin.site.register(UserInfo)  # 관리할 모델을 등록
 admin.site.register(AppCode)
@@ -25,7 +25,13 @@ class AdvertisementAdmin(admin.ModelAdmin):
     list_filter = ['useyn']
 
 
+class MenuReviewAdmin(admin.ModelAdmin):
+    list_display = ('site_code', 'site_name', 'email', 'enroll_date')
+    list_filter = ['site_name']
+
+
 admin.site.register(Site, SiteAdmin)
 admin.site.register(Menu, MenuAdmin)
 admin.site.register(ResturantInfo, ResturantInfoAdmin)
 admin.site.register(Advertisement, AdvertisementAdmin)
+admin.site.register(MenuReview, MenuReviewAdmin)

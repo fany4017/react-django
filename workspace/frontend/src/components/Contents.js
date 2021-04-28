@@ -77,10 +77,13 @@ const Contents = props =>  { //부모 컴포넌트로부터 전달받은 props�
   
   useEffect(() => {
     if((hours >= 0 && hours <= 9) || (hours >= 20 && hours <= 23)){
+      setValue(0);
       setTabvalue(0);
     }else if(hours >= 10 && hours <= 12){
+      setValue(1);
       setTabvalue(1);
     }else if(hours >= 13 && hours <= 19){
+      setValue(2);
       setTabvalue(2);
     }
   }, [])
@@ -101,7 +104,7 @@ const Contents = props =>  { //부모 컴포넌트로부터 전달받은 props�
       SwipeableViews 이건 따로 npm install --save react-swipeable-views 으로 설치해야 쓸수 있는 컴포넌트  */}
       <AppBar position="static" color="default">
         <Tabs
-          value={tabValue}
+          value={value} //value
           onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
@@ -115,7 +118,7 @@ const Contents = props =>  { //부모 컴포넌트로부터 전달받은 props�
       </AppBar>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={tabValue}
+        index={value} //value
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={0} index={0} dir={theme.direction}>

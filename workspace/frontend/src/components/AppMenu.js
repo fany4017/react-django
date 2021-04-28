@@ -1,9 +1,6 @@
 /* 사용 소스 */
 /*global kakao */
 import React, {useEffect} from 'react';
-import ReactGA from "react-ga";  // react ga
-import { createBrowserHistory } from 'history';
-
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -24,6 +21,7 @@ import MainSiteList from './MainSiteList';
 import Advertisement from './Advertisement';
 import LiveTvIcon from '@material-ui/icons/LiveTv';
 import ReportIcon from '@material-ui/icons/Report';
+import {useCookies} from 'react-cookie';
 
 const markerdata = [
   {
@@ -122,11 +120,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ScrollableTabsButtonForce() {
+export default function AppMenu() {
 
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const [site, setSite] = React.useState('');
+  const [cookies, setCookie, removeCookie] = useCookies(['siteCookie']);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -192,17 +191,29 @@ export default function ScrollableTabsButtonForce() {
                 }
             }
         });
+        
         setSite(minSite);
+        
+        /* 위치정보 저장 쿠키 추가 */
+        const expires = new Date();
+        expires.setDate(expires.getDate() + 7); 
+      
+        if(cookies.siteCookie !== undefined) { //site Cookie 가 있으면
+          if(cookies.siteCookie != site){ //저장된 쿠키값과 위치값이 다르면
+            setCookie('siteCookie', minSite, {path: '/',expires});
+          }
+        }else{//site Cookie 가 없으면 셋팅
+          setCookie('siteCookie', minSite, {path: '/',expires});
+        }
+        /* 위치정보 저장 쿠키 종료 */
     });
     
-    
     } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-    
-        var locPosition = new kakao.maps.LatLng(33.450701, 126.570667);  
         var message = 'geolocation을 사용불가 상태!!'
         alert(message);
     }
   };
+  
   return (
     <div className={classes.root} style={{position: 'relative'}}>
       <AppBar position="static" color="default">
@@ -226,7 +237,7 @@ export default function ScrollableTabsButtonForce() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <MainSiteList />
+        <MainSiteList site={site}/>
       </TabPanel>
       <TabPanel value={value} index={1}>
         <Detail site={site}/>

@@ -12,6 +12,8 @@ import Contents from './Contents';
 import SiteChoice from './SiteChoice';
 import Typography from '@material-ui/core/Typography';
 import ReactGA from "react-ga"; 
+import {useCookies} from 'react-cookie';
+
 ReactGA.initialize("UA-73002501-5");
 ReactGA.pageview("Detail");
 
@@ -41,12 +43,17 @@ const Detail = (props) => {
   
   //const site = match.params.site; //main에서 전달된 url에서 site 부분만 가져옴
   const [site, setSite] = React.useState('none');
+  const [cookies, setCookie, removeCookie] = useCookies(['siteCookie']);
 
   useEffect(() => {
     if(props.site != ''){
       setSite(props.site);
     }else{
-      setSite('none');
+      if(cookies.siteCookie !== undefined){ //site Cookie 쿠키값이 있으면
+        setSite(cookies.siteCookie);
+      }else{
+        setSite('none');
+      }
     }
   }, [])
   

@@ -10,7 +10,19 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import ButtonBase from '@material-ui/core/ButtonBase';
-
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import Dialog from '@material-ui/core/Dialog';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItem from '@material-ui/core/ListItem';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+import Slide from '@material-ui/core/Slide';
+import Test2 from './Test2';
+import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
     paddingTop: 'theme.spacing(6)',
@@ -124,7 +136,22 @@ const useStyles = makeStyles((theme) => ({
     left: 'calc(50% - 9px)',
     transition: theme.transitions.create('opacity'),
   },
+  appBar: {
+    backgroundColor:'#00c853',
+    position: 'relative',
+  },
+  title: {
+    marginLeft: theme.spacing(2),
+    flex: 1,
+  },
+  text: {
+    fontFamily: 'NanumGothic-Bold',
+  },
 }));
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 const ResturantsList = props => {
   
@@ -132,25 +159,40 @@ const ResturantsList = props => {
   const site = props.site; // select 박스에서 선택된 지점 코드
   const[posts, setPosts] = useState('');
   const[loading, setLoading] = useState(false);
-  
+  const[resturant, setResturant] = useState('');
 
   useEffect( () => {
     fetchInitialData(); // useEffect 안에서 바로 fetch를 사용하지 말고, fetch 역할의 함수를 실행할것!
   },[site] )
 
-  const fetchInitialData = async () => {
-    setLoading(true);
-    try{
+  const detailOnClick = e => {
+    
+  };
 
-      
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = (resturant_code) => {
+    setResturant(resturant_code);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const fetchInitialData = async () => {
+    
+    setLoading(true);
+
+    try{
+  
       /* 로컬 서버 호출 */
-      //const res = await fetch('http://127.0.0.1:8000/api/resturant');
+      const res = await fetch('http://127.0.0.1:8000/api/resturant');
 
        /* 운영 서버 호출 */
-      const res = await fetch('https://nonghyup-babsang.com/api/resturant');
+     //const res = await fetch('https://nonghyup-babsang.com/api/resturant');
 
       const posts = await res.json();
-     
+      
       function isSite(element)  {
         
         if(element.site_code == site)  {
@@ -178,6 +220,21 @@ const ResturantsList = props => {
       <CssBaseline />
       <main>
         {/* Hero unit */}
+        <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
+        <AppBar className={classes.appBar}>
+          <Toolbar>
+            <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+              <ArrowBackIcon />
+              <Typography variant="h6" className={classes.text}>
+                &nbsp;뒤로가기
+              </Typography>
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+        <List>
+          <Test2 resturant={resturant}/>
+        </List>
+      </Dialog>
         <Container className={classes.cardGrid, classes.text} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4} >
@@ -206,6 +263,7 @@ const ResturantsList = props => {
                           variant="subtitle1"
                           color="inherit"
                           className={classes.imageTitle}
+                          onClick={ () => {handleClickOpen(post.resturant_code);}}
                         >
                           상세보기
                           <span className={classes.imageMarked} />

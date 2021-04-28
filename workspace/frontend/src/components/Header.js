@@ -33,7 +33,7 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
-        <EcoIcon className={classes.text}></EcoIcon><Typography className={classes.text}>농협인의 밥상</Typography>
+        <EcoIcon className={classes.text}></EcoIcon><Typography className={classes.text}>농밥</Typography>
       </Toolbar>
     </React.Fragment>
   );

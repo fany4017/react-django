@@ -16,6 +16,7 @@
     "fontsource-roboto": "^4.0.0",
     "mdbreact": "^5.0.1",
     "react": "^17.0.1",
+    "react-cookie": "^4.0.3",
     "react-dom": "^17.0.1",
     "react-ga": "^3.3.0",
     "react-material-ui-carousel": "^2.2.2",

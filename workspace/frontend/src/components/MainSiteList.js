@@ -15,7 +15,7 @@ import NhitMap from './NhitMap';
 import NhpropertyMap from './NhpropertyMap';
 import NhcoreMap from './NhcoreMap';
 import NhbankMap from './NhbankMap';
-
+import {useCookies} from 'react-cookie';
 import ReactGA from "react-ga"; 
 ReactGA.initialize("UA-73002501-5");
 ReactGA.pageview("MainSiteList");
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
         alignItems: 'center',
     },
     avatar: {
-        margin: theme.spacing(1),
+        margin: theme.spacing(0),
         backgroundColor: '#1a237e',
         alignItems: 'center',
     },
@@ -65,22 +65,42 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
         fontSize:'12px',
         textAlign: 'left',
     },
-    card: {
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
+    textNotice :{ 
+        fontFamily: 'NanumGothic-Bold',
+        fontWeight: 'Bold',
+        color: 'red',
+        fontSize:'10px',
+        textAlign: 'left',
     },
 }));
 
-export default function MainSiteList() {
+export default function MainSiteList(props) {
 
     const classes = useStyles(); // 이렇게 선언하면 classes.객체로 클래스 접근가능 
     const [expanded, setExpanded] = React.useState(false);
+    const [cookies, setCookie, removeCookie] = useCookies(['siteCookie']);
+   
+    // useEffect(() => {
+    //     if(props.site == 'nhitcenter' || cookies.siteCookie == 'nhitcenter'){
+    //         setExpanded(true ? 'panel1' : false);
+    //     }else if(props.site == 'nhcore' || cookies.siteCookie == 'nhcore'){
+    //         setExpanded(true ? 'panel2' : false);
+    //     }else if(props.site == 'nhbank' || cookies.siteCookie == 'nhbank'){
+    //         setExpanded(true ? 'panel3' : false);
+    //     }else if(props.site == 'nhlife' || cookies.siteCookie == 'nhlife'){
+    //         setExpanded(true ? 'panel4' : false);
+    //     }else if(props.site == 'nhproperty' || cookies.siteCookie == 'nhproperty'){
+    //         setExpanded(true ? 'panel5' : false);
+    //     }else if(props.site == 'nhit' || cookies.siteCookie == 'nhit'){
+    //         setExpanded(true ? 'panel6' : false);
+    //     }
+    // }, [])
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
     }
     return (
         <div className={classes.paper}>
+            <Typography className={classes.textNotice}>원활한 앱사용을 위해 위치정보 수집을 허용해주세요<br/>현 위치에서 가장 가까운 구내식당 정보가 보여집니다</Typography><br/>
             <Avatar className={classes.avatar}>
             <RoomIcon />
             </Avatar>

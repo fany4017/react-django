@@ -1,6 +1,19 @@
 /* 사용 소스 */
 import React,{useState, useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
+
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import WriteReivew from './WriteReivew';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import List from '@material-ui/core/List';
+import Typography from '@material-ui/core/Typography';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import AppBar from '@material-ui/core/AppBar';
+import Slide from '@material-ui/core/Slide';
+import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
+
 const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
 
     li: {
@@ -18,17 +31,17 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
         fontSize:'15px',
         fontWeight: 'Bold',
     },
-    badge: {
-    '& > *': {
-      margin: theme.spacing(2),
+    appBar: {
+        backgroundColor:'#00c853',
+        position: 'relative',
     },
-  },
 }));
 
-const defaultProps = {
-    color: 'secondary',
-};
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
+  
 const Morning = (props) => {
 
     const classes = useStyles(); // 이렇게 선언하면 classes.객체로 클래스 접근가능 
@@ -59,6 +72,17 @@ const Morning = (props) => {
         //로딩되면 fetchInitialData() 를 사용해서 api 통신을 하여 조식 메뉴를 가져올것임
         fetchInitialData(); // useEffect 안에서 바로 fetch를 사용하지 말고, fetch 역할의 함수를 실행할것!
     },[date, site] ) // , [date] 값 안넣으면 fetchInitialData 가 계속 호출되서 서버에 부하생김....
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        //setResturant(resturant_code);
+        setOpen(true);
+      };
+    
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     const fetchInitialData = async () => { // fetchInitialData 함수 선언을 하는데 async() : 비동기로 선언함
 
@@ -179,10 +203,33 @@ const Morning = (props) => {
     }
     return (
         <div className={classes.text}>
+            <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
+                <AppBar className={classes.appBar}>
+                    <Toolbar>
+                        <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+                        <ArrowBackIcon />
+                        <Typography variant="h6" className={classes.text}>
+                            &nbsp;뒤로가기
+                        </Typography>
+                        </IconButton>
+                    </Toolbar>
+                </AppBar>
+                <List>
+                    <WriteReivew setOpen={setOpen} date={date} site={site}/>
+                </List>
+            </Dialog>
             {/* 위에서 셋팅한 breakfast1 과, breakfast2 를 뿌려준다. 그럼 끝~~~ */}
             <div>{breakfast1}</div><br/>
             <div>{breakfast2}</div><br/>
-            <div>{breakfast3}</div><br/>
+            <div>{breakfast3}</div><br/><br/>
+            <div style={{position:'relative'}}>
+            <Button style={{position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)'}} variant="contained" size="small" color="primary" 
+                onClick={ () => {handleClickOpen();}}
+                className={classes.margin}>
+                    <CreateOutlinedIcon/>
+                    리뷰 작성
+            </Button>
+            </div>
         </div>
     )
 }

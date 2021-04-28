@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import datetime
 # Create your models here.
 
 
@@ -132,6 +132,20 @@ class Advertisement(models.Model):
     item_name = models.CharField(
         max_length=50, blank=False, help_text="상품명을 입력하세요")  # 상품명
     enroll_date = models.DateTimeField('date enrolled')  # 등록일
+
+    class Meta:
+        ordering = ['-enroll_date']  # 정렬 순서
+
+
+class MenuReview(models.Model):
+    site_code = models.CharField(
+        max_length=30, blank=True)  # 지점코드
+    site_name = models.CharField(max_length=30, blank=True)  # 지점명
+    s_date = models.DateField('standard_date')  # 식단 일자
+    email = models.TextField(blank=True)  # 이메일
+    opinion = models.TextField(blank=True)  # 의견
+    # 등록일
+    enroll_date = models.DateTimeField(default=datetime.now(), blank=True)
 
     class Meta:
         ordering = ['-enroll_date']  # 정렬 순서

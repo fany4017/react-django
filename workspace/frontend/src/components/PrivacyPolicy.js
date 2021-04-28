@@ -235,8 +235,8 @@ const PrivacyPolicy = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                         <Typography className={classes.textDetail}>
-                        농밥은 정보주체의 이용정보를 저장하고 수시로 불러오는 ‘쿠키(cookie)’를 사용하지 않습니다.<br/>
-                        단, 구글 애널리틱스(Google Analytics)를 이용하여 로그 분석을 하고 있습니다. 이용자를 식별할 수 없으며 전체적인 로그 분석에만 이용합니다.<br/>
+                        농밥은 정보주체의 이용정보를 저장하고 수시로 불러오는 ‘쿠키(cookie)’를 사용하여 편의를 높였습니다.<br/>
+                        아울러 구글 애널리틱스(Google Analytics)를 이용하여 로그 분석을 하고 있습니다. 이용자를 식별할 수 없으며 전체적인 로그 분석에만 이용합니다.<br/>
                         </Typography>
                         </AccordionDetails><br/>
                     </Accordion>

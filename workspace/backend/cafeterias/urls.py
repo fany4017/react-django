@@ -8,4 +8,5 @@ urlpatterns = [
     path('resturant/', views.ListResturant.as_view()),
     path('notice/', views.ListNotice.as_view()),
     path('advertisement/', views.ListAdvertisement.as_view()),
+    path('create/review/', views.CreateReview.as_view())
 ]

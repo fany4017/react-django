@@ -2,6 +2,18 @@
 import React,{useState, useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import WriteReivew from './WriteReivew';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import List from '@material-ui/core/List';
+import Typography from '@material-ui/core/Typography';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import AppBar from '@material-ui/core/AppBar';
+import Slide from '@material-ui/core/Slide';
+import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
+
 const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
 
     li: {
@@ -19,8 +31,16 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
         fontSize:'15px',
         fontWeight: 'Bold',
     },
-  
+    appBar: {
+        backgroundColor:'#00c853',
+        position: 'relative',
+    },
 }));
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
+
 const Lunch = (props) => {
 
     const classes = useStyles(); // 이렇게 선언하면 classes.객체로 클래스 접근가능 
@@ -41,6 +61,17 @@ const Lunch = (props) => {
     useEffect( () => {
         fetchInitialData(); // useEffect 안에서 바로 fetch를 사용하지 말고, fetch 역할의 함수를 실행할것!
     },[site, date] )
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        //setResturant(resturant_code);
+        setOpen(true);
+      };
+    
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     const fetchInitialData = async () => {
 
@@ -138,10 +169,33 @@ const Lunch = (props) => {
     }
     return (
         <div className={classes.text}>
+            <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
+                <AppBar className={classes.appBar}>
+                    <Toolbar>
+                        <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+                        <ArrowBackIcon />
+                        <Typography variant="h6" className={classes.text}>
+                            &nbsp;뒤로가기
+                        </Typography>
+                        </IconButton>
+                    </Toolbar>
+                </AppBar>
+                <List>
+                    <WriteReivew setOpen={setOpen} date={date} site={site}/>
+                </List>
+            </Dialog>
             <div>{lunch1}</div><br/>
             <div>{lunch2}</div><br/>
             <div>{lunch3}</div><br/>
-            <div>{lunch4}</div>
+            <div>{lunch4}</div><br/><br/>
+            <div style={{position:'relative'}}>
+            <Button style={{position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)'}} variant="contained" size="small" color="primary" 
+                onClick={ () => {handleClickOpen();}}
+                className={classes.margin}>
+                    <CreateOutlinedIcon/>
+                    리뷰 작성
+            </Button>
+            </div>
         </div>
     )
 }
