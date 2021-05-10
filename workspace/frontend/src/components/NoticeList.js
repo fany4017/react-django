@@ -26,25 +26,18 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.text.secondary,
     },
     textTitle :{ 
-        fontFamily: 'NanumGothic-Bold',
+        fontFamily: 'GmarketSansTTFMedium',
         fontWeight: 'Bold',
         color: 'black',
         fontSize:'12px',
         textAlign: 'left',
     },
     textDetail :{ 
-        fontFamily: 'NanumGothic-Bold',
+        fontFamily: 'GmarketSansTTFLight',
         fontWeight: 'Bold',
         color: 'black',
         fontSize:'10px',
         textAlign: 'left',
-    },
-    textSub :{ 
-        fontFamily: 'NanumGothic-Bold',
-        fontWeight: 'Bold',
-        color: 'black',
-        fontSize:'14px',
-        textAlign: 'center',
     },
     paper: {
         marginTop: '-10px',

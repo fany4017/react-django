@@ -11,6 +11,7 @@ import {MuiPickersUtilsProvider,KeyboardDatePicker,} from '@material-ui/pickers'
 import Contents from './Contents';
 import SiteChoice from './SiteChoice';
 import Typography from '@material-ui/core/Typography';
+import Alert from '@material-ui/lab/Alert';
 import ReactGA from "react-ga"; 
 import {useCookies} from 'react-cookie';
 
@@ -19,6 +20,12 @@ ReactGA.pageview("Detail");
 
 const useStyles = makeStyles((theme) => ({
 
+  paper: {
+    marginTop: '-10px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
   background:{
     backgroundColor : '#b3e5fc',
     padding: theme.spacing(2, 2, 4),
@@ -29,12 +36,20 @@ const useStyles = makeStyles((theme) => ({
   },
   text :{ 
     //Nanum Pen Script
-    fontFamily: 'NanumGothic-Bold',
+    fontFamily: 'GmarketSansTTFMedium',
     fontWeight: 'Bold',
     color: 'black',
     fontSize:'10px',
     textAlign: 'center',
+    paddingTop : '3.5px',
   },
+  textNotice :{ 
+    fontFamily: 'GmarketSansTTFMedium',
+    color: 'black',
+    fontSize:'9px',
+    textAlign: 'left',
+    fontWeight: 'Bold',
+},
 }));
 
 const Detail = (props) => {
@@ -88,11 +103,12 @@ const Detail = (props) => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <main>
+      <main className={classes.paper}> 
         {/* Hero unit */}
         <Container className={classes.cardGrid} maxWidth="md">
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <Typography className={classes.text}>접속 위치 기준으로 가장 가까운 건물이 자동설정됩니다<br/>(일부 단말 제외)</Typography>
+          <br/>
+            <Alert  variant="outlined" severity="info"><Typography className={classes.textNotice}>일부 메뉴는 재료 수급 사정 또는 구내식당 운영 상황에 따라 변경될 수 있습니다.</Typography></Alert>
           <Grid container justify="space-around">
             <SiteChoice setSite={handleSetSite} site={site} />
             {/* <DetailChoice /> */}
@@ -100,6 +116,7 @@ const Detail = (props) => {
           <Grid container justify="space-around">
             <KeyboardDatePicker
               margin="normal"
+              size="medium"
               id="date-picker-dialog"
               label="일자를 선택하세요"
               format="yyyy-MM-dd"

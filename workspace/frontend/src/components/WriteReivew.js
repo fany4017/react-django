@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(1),
   },
   text :{
-    fontFamily: 'NanumGothic-Bold',
+    fontFamily: 'GmarketSansTTFMedium',
     fontSize:'20px',
     fontWeight: 'Bold',
     textAlign: 'center',
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(1),
   },
   textSub :{
-    fontFamily: 'NanumGothic-Bold',
+    fontFamily: 'GmarketSansTTFMedium',
     fontSize:'10px',
     fontWeight: 'Bold',
     fontWeight:'Bold',
@@ -85,7 +85,7 @@ export default function WriteReivew(props) {
   }else if(site == 'nhproperty'){
     siteName = 'NH농협손해보험(NH카페테리아)';
   }else if(site == 'nhit'){
-    siteName = '농협정보시스템';
+    siteName = 'NH디지털혁신센터';
   }
 
   // useEffect(() => {

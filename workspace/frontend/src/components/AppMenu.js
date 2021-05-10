@@ -108,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text :{ 
     //NanumGothic-Bold
-    fontFamily: 'NanumGothic-Bold',
+    fontFamily: 'Wemakeprice-Regular',
     fontWeight: 'Bold',
     color: 'black',
     fontSize:'12px',

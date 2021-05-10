@@ -38,10 +38,6 @@
 }
 
 @font-face {
-  font-family: "Nanum Pen Script";
-  src: url("./font/NanumPenScript-Regular.ttf");
-}
-@font-face {
   font-family: "NanumGothic-Bold";
   src: url("./font/NanumGothic-Bold.ttf");
 }
@@ -50,14 +46,31 @@
   src: url("./font/NanumGothic-ExtraBold.ttf");
 }
 @font-face {
-  font-family: "NanumPenScript-Regular";
-  src: url("./font/NanumPenScript-Regular.ttf");
+  font-family: "Wemakeprice-Bold";
+  src: url("./font/Wemakeprice-Bold.ttf");
 }
+
 @font-face {
-  font-family: "Dokdo-Regular";
-  src: url("./font/Dokdo-Regular.ttf");
+  font-family: "Wemakeprice-Regular";
+  src: url("./font/Wemakeprice-Regular.ttf");
 }
+
 @font-face {
-  font-family: "SongMyung-Regular";
-  src: url("./font/SongMyung-Regular.ttf");
+  font-family: "Wemakeprice-SemiBold";
+  src: url("./font/Wemakeprice-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "GmarketSansTTFBold";
+  src: url("./font/GmarketSansTTFBold.ttf");
+}
+
+@font-face {
+  font-family: "GmarketSansTTFLight";
+  src: url("./font/GmarketSansTTFLight.ttf");
+}
+
+@font-face {
+  font-family: "GmarketSansTTFMedium";
+  src: url("./font/GmarketSansTTFMedium.ttf");
 }

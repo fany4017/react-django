@@ -13,7 +13,7 @@ import IconButton from '@material-ui/core/IconButton';
 import AppBar from '@material-ui/core/AppBar';
 import Slide from '@material-ui/core/Slide';
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
-
+import Alert from '@material-ui/lab/Alert';
 const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
 
     li: {
@@ -23,16 +23,31 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
     titleText :{
         fontWeight: 'Bold',
         color: '#f44336',
-        textDecoration : 'underline',
+        //textDecoration : 'underline',
     },
     text :{
         //NanumGothic-Bold SongMyung-Regular
-        fontFamily: 'NanumGothic-Bold',
+        fontFamily: 'GmarketSansTTFLight',
+        fontSize:'15px',
+        fontWeight: 'Bold',
+    },
+    textInfo:{ 
+        //Nanum Pen Script
+        fontFamily: 'GmarketSansTTFMedium',
+        fontWeight: 'Bold',
+        color: 'black',
+        fontSize:'10px',
+        textAlign: 'left',
+        paddingTop : '4px',
+    },
+    textButton :{
+        //NanumGothic-Bold SongMyung-Regular
+        fontFamily: 'GmarketSansTTFLight',
         fontSize:'15px',
         fontWeight: 'Bold',
     },
     appBar: {
-        backgroundColor:'#00c853',
+        backgroundColor:'#2fa767',
         position: 'relative',
     },
 }));
@@ -41,9 +56,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-  
 const Morning = (props) => {
-
+    
     const classes = useStyles(); // 이렇게 선언하면 classes.객체로 클래스 접근가능 
     //console.log('Morning 로그찍힘 : '+props.site + ' / ' + props.date)
     //날짜 셋팅
@@ -67,7 +81,7 @@ const Morning = (props) => {
     //const message1 = 'click';
 
     const message = "대표";
-
+    
     useEffect( () => { // 이건 컴포넌트가 로딩되면 자동으로 실행되는 함수인데
         //로딩되면 fetchInitialData() 를 사용해서 api 통신을 하여 조식 메뉴를 가져올것임
         fetchInitialData(); // useEffect 안에서 바로 fetch를 사용하지 말고, fetch 역할의 함수를 실행할것!
@@ -83,7 +97,7 @@ const Morning = (props) => {
     const handleClose = () => {
         setOpen(false);
     };
-
+    
     const fetchInitialData = async () => { // fetchInitialData 함수 선언을 하는데 async() : 비동기로 선언함
 
         setLoading(true);
@@ -170,6 +184,7 @@ const Morning = (props) => {
                             breakfast2_element.push(<li>{breakfast2Arr[i]}</li>)
                         }
                     };
+                    
                 }
                 setBreakfast2(breakfast2_element);
 
@@ -186,10 +201,12 @@ const Morning = (props) => {
                 setBreakfast3(breakfast3_element);
 
             }else{ // 뿌려줄 데이터가 없으면 등록전입니다 셋팅
+               
                 setBreakfast1('등록전입니다');
                 setBreakfast2('');
                 setBreakfast3('');
             }
+            
         }catch(e){
             console.log(e);
         }
@@ -221,15 +238,7 @@ const Morning = (props) => {
             {/* 위에서 셋팅한 breakfast1 과, breakfast2 를 뿌려준다. 그럼 끝~~~ */}
             <div>{breakfast1}</div><br/>
             <div>{breakfast2}</div><br/>
-            <div>{breakfast3}</div><br/><br/>
-            <div style={{position:'relative'}}>
-            <Button style={{position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)'}} variant="contained" size="small" color="primary" 
-                onClick={ () => {handleClickOpen();}}
-                className={classes.margin}>
-                    <CreateOutlinedIcon/>
-                    리뷰 작성
-            </Button>
-            </div>
+            <div>{breakfast3}</div>
         </div>
     )
 }

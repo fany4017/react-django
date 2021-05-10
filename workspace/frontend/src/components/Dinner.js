@@ -13,7 +13,7 @@ import IconButton from '@material-ui/core/IconButton';
 import AppBar from '@material-ui/core/AppBar';
 import Slide from '@material-ui/core/Slide';
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
-
+import Alert from '@material-ui/lab/Alert';
 const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
 
     li: {
@@ -23,17 +23,41 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
     titleText :{
         fontWeight: 'Bold',
         color: '#f44336',
-        textDecoration : 'underline',
+        //textDecoration : 'underline',
     },
     text :{ 
         //NanumGothic-Bold SongMyung-Regular
-        fontFamily: 'NanumGothic-Bold',
+        fontFamily: 'GmarketSansTTFLight',
+        fontSize:'15px',
+        fontWeight: 'Bold',
+    },
+    textInfo:{ 
+        //Nanum Pen Script
+        fontFamily: 'GmarketSansTTFMedium',
+        fontWeight: 'Bold',
+        color: 'black',
+        fontSize:'10px',
+        textAlign: 'left',
+        paddingTop : '4px',
+    },
+    textButton :{
+        //NanumGothic-Bold SongMyung-Regular
+        fontFamily: 'GmarketSansTTFLight',
         fontSize:'15px',
         fontWeight: 'Bold',
     },
     appBar: {
-        backgroundColor:'#00c853',
+        backgroundColor:'#2fa767',
         position: 'relative',
+    },
+    textInfo2 :{ 
+        //Nanum Pen Script
+        fontFamily: 'GmarketSansTTFMedium',
+        fontWeight: 'Bold',
+        color: 'black',
+        fontSize:'10px',
+        textAlign: 'center',
+        paddingTop : '3.5px',
     },
 }));
 
@@ -80,10 +104,10 @@ const Dinner = (props) => {
         try{
 
             /* 로컬 서버 호출 */
-            //const res = await fetch('http://127.0.0.1:8000/api/cafeteria/'+site+'/'+date);
+            const res = await fetch('http://127.0.0.1:8000/api/cafeteria/'+site+'/'+date);
 
             /* 운영 서버 호출 */
-            const res = await fetch('https://nonghyup-babsang.com/api/cafeteria/'+site+'/'+date);
+            //const res = await fetch('https://nonghyup-babsang.com/api/cafeteria/'+site+'/'+date);
             //const res = await fetch('http://3.36.126.189/api/cafeteria/'+site+'/'+date);
 
             const data = await res.json();
@@ -113,7 +137,7 @@ const Dinner = (props) => {
                     setdinner1(dinner1_element);
                 }
                 
-                if(dinner2Arr.length > 0 && dinner2Arr[0] != ''){
+                if(dinner2Arr.length >= 0 && dinner2Arr[0] != ''){
                     for(let i=0;i<dinner2Arr.length;i++){
                         if(i==0){
                             dinner2_element.push(<li><span className={classes.titleText}>{dinner2Arr[i]}</span><span>⭐</span></li>)
@@ -124,7 +148,7 @@ const Dinner = (props) => {
                     setdinner2(dinner2_element);
                 }
 
-                if(dinner3Arr.length > 0 && dinner3Arr[0] != ''){
+                if(dinner3Arr.length >= 0 && dinner3Arr[0] != ''){
                     for(let i=0;i<dinner3Arr.length;i++){
                         if(i===0){
                             dinner3_element.push(<li><span className={classes.titleText}>{dinner3Arr[i]}</span><span>⭐</span></li>)
@@ -134,7 +158,7 @@ const Dinner = (props) => {
                     };
                     setdinner3(dinner3_element);
                 }
-                
+                console.log('dinner1 length : '+dinner1.length);
             }else{
                 setdinner1('등록전입니다');
                 setdinner2('');
@@ -170,15 +194,7 @@ const Dinner = (props) => {
             </Dialog>
             <div>{dinner1}</div><br/>
             <div>{dinner2}</div><br/>
-            <div>{dinner3}</div><br/><br/>
-            <div style={{position:'relative'}}>
-            <Button style={{position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)'}} variant="contained" size="small" color="primary" 
-                onClick={ () => {handleClickOpen();}}
-                className={classes.margin}>
-                    <CreateOutlinedIcon/>
-                    리뷰 작성
-            </Button>
-            </div>
+            <div>{dinner3}</div>
         </div>
     )
 }

@@ -54,9 +54,8 @@ const useStyles = makeStyles((theme) => ({
     width: 500,
   },
   text :{ 
-
     //NanumGothic-Bold
-    fontFamily: 'NanumGothic-Bold',
+    fontFamily: 'GmarketSansTTFMedium',
     fontWeight: 'Bold',
     color: 'black',
     fontSize:'18px',
@@ -102,7 +101,7 @@ const Contents = props =>  { //부모 컴포넌트로부터 전달받은 props�
     <div className={classes.root}>
       {/* AppBar , Tab, 이런건 material-ui 에서제공하는 컴포넌트고 
       SwipeableViews 이건 따로 npm install --save react-swipeable-views 으로 설치해야 쓸수 있는 컴포넌트  */}
-      <AppBar position="static" color="default">
+      <AppBar  position="static" color="default">
         <Tabs
           value={value} //value
           onChange={handleChange}

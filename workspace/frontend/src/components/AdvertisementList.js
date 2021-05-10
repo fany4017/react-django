@@ -29,10 +29,10 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
         textAlign: 'center',
     },
     textSub :{ 
-        fontFamily: 'NanumGothic-Bold',
+        fontFamily: 'GmarketSansTTFMedium',
         fontWeight: 'Bold',
         color: 'black',
-        fontSize:'10px',
+        fontSize:'9px',
         textAlign: 'center',
     },
     card: {
@@ -108,7 +108,7 @@ export default function AdvertisementList() {
     }
     return (
         <div className={classes.paper}><br/>
-            <Typography className={classes.textSub}> 해당앱은 파트너스 활동을 통해 일정액의 수수료를 제공받을 수 있습니다. </Typography>
+            <Typography className={classes.textSub}> 해당앱은 파트너스 활동을 통해 일정 수수료를 제공받을 수 있습니다. </Typography>
             <Typography className={classes.textSub}> 수수료는 더 나은 서비스 제공에 도움이됩니다. </Typography><br/>
             <main>
                 <div >

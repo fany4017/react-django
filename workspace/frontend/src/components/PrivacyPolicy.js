@@ -28,14 +28,14 @@ const useStyles = makeStyles((theme) => ({
     },
     textTitle :{ 
         //NanumGothic-Bold
-        fontFamily: 'NanumGothic-Bold',
+        fontFamily: 'GmarketSansTTFMedium',
         fontWeight: 'Bold',
         color: 'black',
         fontSize:'11px',
         textAlign: 'left',
     },
     textDetail :{ 
-        fontFamily: 'NanumGothic-Bold',
+        fontFamily: 'GmarketSansTTFLight',
         fontWeight: 'Bold',
         color: 'black',
         fontSize:'10px',

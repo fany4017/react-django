@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text :{
     //NanumGothic-Bold
-    fontFamily: 'NanumGothic-Bold',
+    fontFamily: 'GmarketSansTTFMedium',
     fontWeight: 'Bold',
     color: 'black',
     fontSize:'15px',
@@ -37,13 +37,11 @@ const SiteChoice = (props) => {
           className={classes.selectEmpty, classes.text}
           inputProps={{ 'aria-label': 'Without label' }}
         >
-          <MenuItem value={'none'} className={classes.text}>사이트를 선택해주세요</MenuItem>
+          <MenuItem value={'none'} className={classes.text}>건물을 선택해주세요</MenuItem>
           <MenuItem value={'nhitcenter'} className={classes.text}>NH통합IT센터</MenuItem>
-          <MenuItem value={'nhcore'} className={classes.text}>농협중앙회(본관)</MenuItem>
-          <MenuItem value={'nhbank'} className={classes.text}>NH농협은행(신관)</MenuItem>
           <MenuItem value={'nhlife'} className={classes.text}>NH농협생명보험</MenuItem>
           <MenuItem value={'nhproperty'} className={classes.text}>NH농협손해보험</MenuItem>
-          <MenuItem value={'nhit'} className={classes.text}>농협정보시스템</MenuItem>
+          <MenuItem value={'nhit'} className={classes.text}>NH디지털혁신센터</MenuItem>
         </Select>
       </FormControl>
     </div>

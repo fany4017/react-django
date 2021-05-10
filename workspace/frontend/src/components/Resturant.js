@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text :{ 
     //Nanum Pen Script
-    fontFamily: 'NanumGothic-Bold',
+    fontFamily: 'GmarketSansTTFMedium',
     fontWeight: 'Bold',
     color: 'black',
     fontSize:'16px',
@@ -63,7 +63,7 @@ const Resturant = (props) => {
         {/* Hero unit */}
         <Container className={classes.cardGrid} maxWidth="md">
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <Typography className={classes.text}>현직자가 직접 엄선한 맛집</Typography>
+        <Typography className={classes.text}>⭐⭐농슐랭 가이드⭐⭐</Typography>
           <Grid container justify="space-around">
             <SiteChoice setSite={handleSetSite} site={site} />
             {/* <DetailChoice /> */}

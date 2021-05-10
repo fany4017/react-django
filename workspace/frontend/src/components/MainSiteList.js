@@ -16,6 +16,7 @@ import NhpropertyMap from './NhpropertyMap';
 import NhcoreMap from './NhcoreMap';
 import NhbankMap from './NhbankMap';
 import {useCookies} from 'react-cookie';
+import Alert from '@material-ui/lab/Alert';
 import ReactGA from "react-ga"; 
 ReactGA.initialize("UA-73002501-5");
 ReactGA.pageview("MainSiteList");
@@ -38,7 +39,7 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
     },
     text :{ 
         //Nanum Pen Script
-        fontFamily: 'NanumGothic-Bold',
+        fontFamily: 'Wemakeprice-Bold',
         fontWeight: 'Bold',
         color: 'black',
         fontSize:'20px',
@@ -46,31 +47,31 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
     },
     textTitle :{ 
         //NanumGothic-Bold
-        fontFamily: 'NanumGothic-Bold',
+        fontFamily: 'GmarketSansTTFMedium',
         fontWeight: 'Bold',
         color: 'black',
         fontSize:'16px',
         textAlign: 'left',
     },
     textSub :{ 
-        fontFamily: 'NanumGothic-Bold',
+        fontFamily: 'GmarketSansTTFLight',
         color: 'black',
-        fontSize:'14px',
+        fontSize:'11px',
         textAlign: 'left',
     },
     textDetail :{ 
-        fontFamily: 'NanumGothic-Bold',
+        fontFamily: 'GmarketSansTTFLight',
         fontWeight: 'Bold',
         color: 'black',
         fontSize:'12px',
         textAlign: 'left',
     },
     textNotice :{ 
-        fontFamily: 'NanumGothic-Bold',
-        fontWeight: 'Bold',
-        color: 'red',
-        fontSize:'10px',
+        fontFamily: 'GmarketSansTTFMedium',
+        color: 'black',
+        fontSize:'9px',
         textAlign: 'left',
+        fontWeight: 'Bold',
     },
 }));
 
@@ -100,7 +101,9 @@ export default function MainSiteList(props) {
     }
     return (
         <div className={classes.paper}>
-            <Typography className={classes.textNotice}>원활한 앱사용을 위해 위치정보 수집을 허용해주세요<br/>현 위치에서 가장 가까운 구내식당 정보가 보여집니다</Typography><br/>
+            <br/>
+            <Alert variant="outlined" severity="error"><Typography className={classes.textNotice}>원활한 앱사용을 위해 위치정보 수집을 허용해주세요.<br/>현 위치에서 가장 가까운 구내식당 정보가 보여집니다.</Typography></Alert>
+            <br/>
             <Avatar className={classes.avatar}>
             <RoomIcon />
             </Avatar>
@@ -126,57 +129,11 @@ export default function MainSiteList(props) {
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                     >
-                    <Typography className={classes.textTitle}>농협중앙회(본관)
-                    <Typography className={classes.textDetail}>서울 중구 새문안로 16 B2</Typography>
-                    </Typography>
-                    </AccordionSummary>
-                    <Typography style={{paddingLeft:'16px', fontSize:'12px', fontWeight: 'Bold', fontFamily: 'NanumGothic-Bold'}}>
-                        [운영 시간 및 가격]<br/>
-                        조식 :  07:30 ~ 08:40 (4,000원)<br/>
-                        중식 :  11:30 ~ 13:20 (5,300원)·신토불이(6,500원)<br/><br/>
-                        [4월 층별 이용시간]<br/>
-                        본관 4·5층 / 별관 1·2·3층 : 11:30 ~ 12:30<br/>
-                        본관 6·7·8층 / 별관 4·5층 : 12:00 ~ 13:00<br/>
-                        본관 3·9·10층 / 별관 6·7층 : 12:20 ~ 13:20<br/>
-                    </Typography><br/>
-                    <AccordionDetails>
-                        <NhcoreMap />
-                    </AccordionDetails><br/>
-                </Accordion>
-                <Accordion className={classes.background} expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-                    <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1bh-content"
-                    id="panel1bh-header"
-                    >
-                    <Typography className={classes.textTitle}>NH농협은행 본점(신관)
-                    <Typography className={classes.textDetail}>서울 중구 통일로 120 NH농협은행 신관 12F</Typography>
-                    </Typography>
-                    </AccordionSummary>
-                    <Typography style={{paddingLeft:'16px', fontSize:'12px', fontWeight: 'Bold', fontFamily: 'NanumGothic-Bold'}}>
-                        [운영 시간 및 가격]<br/>
-                        조식 :  07:50 ~ 08:40 빵(4,000원)·라면(3,000원)<br/>
-                        중식 :  11:30 ~ 13:00 (5,300원)<br/><br/>
-                        [4월 층별 이용시간]<br/>
-                        A조(1F~8F) : 11:30 ~ 12:00<br/>
-                        B조(9F~13F) : 12:00 ~ 12:30<br/>
-                        C조(14F~20F) : 12:30 ~ 13:00<br/>
-                    </Typography><br/>
-                    <AccordionDetails>
-                        <NhbankMap />
-                    </AccordionDetails><br/>
-                </Accordion>
-                <Accordion className={classes.background} expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
-                    <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1bh-content"
-                    id="panel1bh-header"
-                    >
                     <Typography className={classes.textTitle}>NH농협생명보험
                     <Typography className={classes.textDetail}>서울 서대문구 통일로 87 NH농협생명 20F</Typography>
                     </Typography>
                     </AccordionSummary>
-                    <Typography style={{paddingLeft:'16px', fontSize:'12px', fontWeight: 'Bold', fontFamily: 'NanumGothic-Bold'}}>
+                    <Typography style={{paddingLeft:'16px', fontSize:'12px', fontWeight: 'Bold', fontFamily: 'GmarketSansTTFLight'}}>
                         [운영 시간 및 가격]<br/>
                         조식 :  08:00 ~ 09:00 (3,700원)<br/>
                         중식 :  11:30 ~ 13:00 (4,700원)<br/>
@@ -185,7 +142,7 @@ export default function MainSiteList(props) {
                         <NhlifeMap />
                     </AccordionDetails><br/>
                 </Accordion>
-                <Accordion className={classes.background} expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
+                <Accordion className={classes.background} expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
                     <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1bh-content"
@@ -195,7 +152,7 @@ export default function MainSiteList(props) {
                     <Typography className={classes.textDetail}>서울 서대문구 충정로 60 B1</Typography>
                     </Typography>
                     </AccordionSummary>
-                    <Typography style={{paddingLeft:'16px', fontSize:'12px', fontWeight: 'Bold', fontFamily: 'NanumGothic-Bold'}}>
+                    <Typography style={{paddingLeft:'16px', fontSize:'12px', fontWeight: 'Bold', fontFamily: 'GmarketSansTTFLight'}}>
                         [운영 시간 및 가격]<br/>
                         조식 :  07:30 ~ 08:30 (3,500원)<br/>
                         중식 :  12:00 ~ 13:30 (5,500원)<br/>
@@ -205,25 +162,24 @@ export default function MainSiteList(props) {
                         <NhpropertyMap />
                     </AccordionDetails><br/>
                 </Accordion>
-                <Accordion className={classes.background} expanded={expanded === 'panel6'} onChange={handleChange('panel6')}>
+                <Accordion className={classes.background} expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
                     <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                     >
-                    <Typography className={classes.textTitle}>농협정보시스템
-                    <Typography className={classes.textDetail}>서울특별시 서초구 양재2동 매헌로 24 B1</Typography>
+                    <Typography className={classes.textTitle}>NH디지털혁신센터<span className={classes.textSub}> (농협정보시스템)</span>
+                    <Typography className={classes.textDetail}>서울특별시 서초구 양재2동 매헌로 24 6F</Typography>
                     </Typography>
                     </AccordionSummary>
-                    <Typography style={{paddingLeft:'16px', fontSize:'12px', fontWeight: 'Bold', fontFamily: 'NanumGothic-Bold'}}>
+                    <Typography style={{paddingLeft:'16px', fontSize:'12px', fontWeight: 'Bold', fontFamily: 'GmarketSansTTFLight'}}>
                         [운영 시간 및 가격]<br/>
                         중식 :  11:30 ~ 13:00 (5,500원)<br/>
                     </Typography><br/>
                     <AccordionDetails>
                         <NhitMap />
                     </AccordionDetails><br/>
-                </Accordion><br/><br/><br/><br/>
-                
+                </Accordion><br/><br/><br/>
             </main>
         </div>
     )

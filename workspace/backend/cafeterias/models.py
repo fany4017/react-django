@@ -28,6 +28,7 @@ class Menu(models.Model):  # 구내식당 메뉴 모델
     lunch_type_2 = models.CharField(max_length=200, blank=True)
     lunch_type_3 = models.CharField(max_length=200, blank=True)
     lunch_type_4 = models.CharField(max_length=200, blank=True)
+    lunch_type_5 = models.CharField(max_length=200, blank=True)
     dinner_type_1 = models.CharField(max_length=200, blank=True)
     dinner_type_2 = models.CharField(max_length=200, blank=True)
     dinner_type_3 = models.CharField(max_length=200, blank=True)

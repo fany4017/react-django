@@ -13,7 +13,7 @@ import IconButton from '@material-ui/core/IconButton';
 import AppBar from '@material-ui/core/AppBar';
 import Slide from '@material-ui/core/Slide';
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
-
+import Alert from '@material-ui/lab/Alert';
 const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 선언
 
     li: {
@@ -27,12 +27,27 @@ const useStyles = makeStyles((theme) => ({ // useStyles 변수에 css 스타일 
     },
     text :{ 
         //NanumGothic-Bold SongMyung-Regular
-        fontFamily: 'NanumGothic-Bold',
+        fontFamily: 'GmarketSansTTFLight',
+        fontSize:'15px',
+        fontWeight: 'Bold',
+    },
+    textInfo:{ 
+        //Nanum Pen Script
+        fontFamily: 'GmarketSansTTFMedium',
+        fontWeight: 'Bold',
+        color: 'black',
+        fontSize:'10px',
+        textAlign: 'left',
+        paddingTop : '4px',
+    },
+    textButton :{
+        //NanumGothic-Bold SongMyung-Regular
+        fontFamily: 'GmarketSansTTFLight',
         fontSize:'15px',
         fontWeight: 'Bold',
     },
     appBar: {
-        backgroundColor:'#00c853',
+        backgroundColor:'#2fa767',
         position: 'relative',
     },
 }));
@@ -54,6 +69,7 @@ const Lunch = (props) => {
     const[lunch2, setlunch2] = useState('');
     const[lunch3, setlunch3] = useState('');
     const[lunch4, setlunch4] = useState('');
+    const[lunch5, setlunch5] = useState('');
 
     const[loading, setLoading] = useState(false); // api 호출했을때 속도가 늦어질 것을 대비해서 loading 변수를 만듬
     const[posts, setPosts] = useState('');
@@ -94,16 +110,19 @@ const Lunch = (props) => {
                 const lunch2Arr = data.lunch_type_2.split(",");
                 const lunch3Arr = data.lunch_type_3.split(",");
                 const lunch4Arr = data.lunch_type_4.split(",");
+                const lunch5Arr = data.lunch_type_5.split(",");
 
                 const lunch1_element = [];
                 const lunch2_element = [];
                 const lunch3_element = [];
                 const lunch4_element = [];
-    
+                const lunch5_element = [];
+
                 setlunch1('');
                 setlunch2('');
                 setlunch3('');
                 setlunch4('');
+                setlunch5('');
 
                 if(lunch1Arr.length >= 0 || lunch1Arr[0] != ''){
                     for(let i=0;i<lunch1Arr.length;i++){
@@ -149,12 +168,24 @@ const Lunch = (props) => {
                     };
                     setlunch4(lunch4_element);
                 }
+
+                if(lunch5Arr.length >= 0 && lunch5Arr[0] != ''){
+                    for(let i=0;i<lunch5Arr.length;i++){
+                        if(i==0){
+                            lunch5_element.push(<li><span className={classes.titleText}>{lunch5Arr[i]}</span><span>⭐</span></li> )
+                        }else{
+                            lunch5_element.push(<li>{lunch5Arr[i]}</li> )
+                        }
+                    };
+                    setlunch5(lunch5_element);
+                }
                 
             }else{
                 setlunch1('등록전입니다');
                 setlunch2('');
                 setlunch3('');
                 setlunch4('');
+                setlunch5('');
             }
         }catch(e){
             console.log(e);
@@ -187,15 +218,8 @@ const Lunch = (props) => {
             <div>{lunch1}</div><br/>
             <div>{lunch2}</div><br/>
             <div>{lunch3}</div><br/>
-            <div>{lunch4}</div><br/><br/>
-            <div style={{position:'relative'}}>
-            <Button style={{position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)'}} variant="contained" size="small" color="primary" 
-                onClick={ () => {handleClickOpen();}}
-                className={classes.margin}>
-                    <CreateOutlinedIcon/>
-                    리뷰 작성
-            </Button>
-            </div>
+            <div>{lunch4}</div><br/>
+            <div>{lunch5}</div><br/>
         </div>
     )
 }
